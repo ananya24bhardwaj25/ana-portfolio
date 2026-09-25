@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FactCheck AI — Ananya Bhardwaj</title>
+<meta name="description" content="Ananya Bhardwaj — Data Science Engineer building ML systems, data pipelines and analytics experiences.">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body data-page="project-factcheck-ai.html">
+<div id="race-cursor"></div>
+<canvas id="telemetry-canvas" aria-hidden="true"></canvas>
+<div class="site-shell">
+<div class="topline"></div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">AB</span><span>ANANYA</span> BHARDWAJ</a>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="design.html">MEDIA</a>
+      <a href="work-with-me.html">WORK WITH ME</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+    <div class="nav-actions">
+      <div class="pill"><i class="light"></i> OPEN TO WORK</div>
+      <button class="mobile-toggle" aria-label="Toggle navigation">MENU</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="detail-hero">
+  <div class="wrap detail-hero-grid">
+    <div class="fade-in">
+      <div class="kicker">CASE 03 // LLM / RETRIEVAL</div>
+      <h1>FactCheck<br>AI</h1>
+      <div class="detail-meta"><span class="tag">PYTHON</span><span class="tag">FAISS</span><span class="tag">SENTENCETRANSFORMERS</span><span class="tag">MISTRAL</span><span class="tag">OLLAMA</span><span class="tag">STREAMLIT</span></div>
+      <p class="detail-copy">An AI fact-checking system that searches for relevant evidence first, then uses an LLM to reason over what it found.</p>
+      <div class="hero-actions"><a class="btn red" href="projects.html">← BACK TO GARAGE</a><a class="btn dark" href="contact.html">DISCUSS A PROJECT</a></div>
+    </div>
+    <div class="detail-rail fade-in"><small>CASE FILE STATUS</small><strong>DEMO<br>READY</strong><p style="color:var(--muted);font-size:11px;margin-top:9px">This page includes small front-end visualizers to make the system easier to explore.</p></div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="wrap">
+    <div class="stats-grid fade-in">
+<div class="stat"><small>RETRIEVAL</small><strong>FAISS</strong><span>evidence search layer</span></div>
+<div class="stat"><small>EMBEDDINGS</small><strong>ST</strong><span>SentenceTransformers</span></div>
+<div class="stat"><small>LLM</small><strong>MIS</strong><span>Mistral via Ollama</span></div>
+<div class="stat"><small>OUTPUT</small><strong>3×</strong><span>claim verdict classes</span></div>
+</div>
+    <div class="case-columns">
+      <div class="case-text fade-in">
+<h3>HOW IT WORKS</h3>
+<p>A claim enters the system, relevant evidence is retrieved, and that evidence is passed to the language model before a verdict is produced. In simple terms: search first, reason second.</p>
+<ul class="case-list">
+<li>Finds relevant evidence with semantic search</li>
+<li>Uses FAISS for fast evidence retrieval</li>
+<li>Uses Mistral through Ollama for the reasoning step</li>
+<li>Returns Supported, Refuted or Unverifiable with reasoning</li>
+</ul>
+<div class="rule"></div>
+<div class="kicker">SYSTEM THINKING</div>
+<p>The key idea is simple: give the model evidence before asking it to explain the claim. That makes the workflow easier to understand and audit.</p>
+</div>
+      <div class="fade-in">
+<div class="demo" id="factDemo">
+  <div class="demo-top"><small>FRONT-END DEMO / SAMPLE CLAIM CHECK</small><span class="demo-state">RETRIEVE → VERIFY</span></div>
+  <div class="control">
+    <label>Claim</label>
+    <textarea id="claim">The Earth orbits the Sun.</textarea>
+  </div>
+  <div class="hero-actions" style="margin-top:10px"><button class="btn red" id="verifyBtn" type="button">RUN CHECK →</button><button class="btn dark" id="sampleBtn" type="button">LOAD SAMPLE</button></div>
+  <div class="readout"><div><strong id="verdict">SUPPORTED</strong><p id="reason">Demo response: evidence retrieval would precede the reasoning layer in the full application.</p></div><div class="signal-list"><div class="signal-item"><span>EMBEDDINGS</span><span>ON</span></div><div class="signal-item"><span>FAISS</span><span>READY</span></div><div class="signal-item"><span>LLM</span><span>MISTRAL</span></div></div></div>
+</div>
+<script>
+const claim=document.getElementById('claim'), verdict=document.getElementById('verdict'), reason=document.getElementById('reason');
+document.getElementById('verifyBtn').addEventListener('click',()=>{
+  const text=claim.value.trim().toLowerCase();
+  if(text.includes('earth')&&text.includes('sun')){
+    verdict.textContent='SUPPORTED'; reason.textContent='Sample demo: this claim is treated as supported. In the original system, retrieved evidence would be passed into Mistral for the final verdict.';
+  }else if(text.includes('2+2')||text.includes('moon is made of cheese')){
+    verdict.textContent='REFUTED'; reason.textContent='Sample demo: this claim is treated as refuted. This UI does not call the original model.';
+  }else{
+    verdict.textContent='UNVERIFIABLE'; reason.textContent='Sample demo: no deterministic evidence is configured for this claim. The full pipeline would retrieve evidence first.';
+  }
+});
+document.getElementById('sampleBtn').addEventListener('click',()=>{claim.value='The Earth orbits the Sun.';});
+</script>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" style="padding-top:20px">
+  <div class="wrap grid-2">
+    <div class="panel panel-pad fade-in">
+      <div class="kicker">ARCHITECTURE</div>
+      <h2 style="font-family:var(--display);font-size:44px;text-transform:uppercase;line-height:.92">DATA → MODEL → OUTPUT</h2>
+      <p style="color:var(--muted);font-size:12.5px;margin-top:12px">The portfolio uses this visual as a product-level explanation, not as a substitute for the original source code.</p>
+    </div>
+    <div class="panel panel-pad fade-in">
+      <div class="kicker">STACK</div>
+      <div class="stack-cloud" style="margin-top:13px"><span class="stack-chip">PYTHON</span><span class="stack-chip">FAISS</span><span class="stack-chip">SENTENCETRANSFORMERS</span><span class="stack-chip">MISTRAL</span><span class="stack-chip">OLLAMA</span><span class="stack-chip">STREAMLIT</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="name">ANANYA BHARDWAJ</div>
+      <small>AI ENGINEER · INDIA · BUILDING FROM THE PIT WALL</small>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
+      <a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">GITHUB ↗</a>
+      <a href="mailto:ananyabhardwaj.tech@gmail.com">EMAIL ↗</a>
+      <a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">RESUME ↗</a>
+    </div>
+  </div>
+</footer>
+</div>
+<div class="toast" aria-live="polite"></div>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flight Price Predictor — Ananya Bhardwaj</title>
+<meta name="description" content="Ananya Bhardwaj — Data Science Engineer building ML systems, data pipelines and analytics experiences.">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body data-page="project-flight-predictor.html">
+<div id="race-cursor"></div>
+<canvas id="telemetry-canvas" aria-hidden="true"></canvas>
+<div class="site-shell">
+<div class="topline"></div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">AB</span><span>ANANYA</span> BHARDWAJ</a>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="design.html">MEDIA</a>
+      <a href="work-with-me.html">WORK WITH ME</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+    <div class="nav-actions">
+      <div class="pill"><i class="light"></i> OPEN TO WORK</div>
+      <button class="mobile-toggle" aria-label="Toggle navigation">MENU</button>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="detail-hero">
+  <div class="wrap detail-hero-grid">
+    <div class="fade-in">
+      <div class="kicker">CASE 01 // MACHINE LEARNING</div>
+      <h1>Flight<br>Price<br>Predictor</h1>
+      <div class="detail-meta"><span class="tag">PYTHON</span><span class="tag">SCIKIT-LEARN</span><span class="tag">RANDOM FOREST</span><span class="tag">FEATURE ENGINEERING</span></div>
+      <p class="detail-copy">A flight-price prediction project where the data is explored first, cleaned next, and then used to predict ticket prices.</p>
+      <div class="hero-actions"><a class="btn red" href="projects.html">← BACK TO GARAGE</a><a class="btn dark" href="contact.html">DISCUSS A PROJECT</a></div>
+    </div>
+    <div class="detail-rail fade-in"><small>CASE FILE STATUS</small><strong>DEMO<br>READY</strong><p style="color:var(--muted);font-size:11px;margin-top:9px">This page includes small front-end visualizers to make the system easier to explore.</p></div>
+  </div>
+</section>
+
+<section class="case-section">
+  <div class="wrap">
+    <div class="stats-grid fade-in">
+<div class="stat"><small>MODEL</small><strong>RF</strong><span>Random Forest Regressor</span></div>
+<div class="stat"><small>MODEL ACCURACY</small><strong>0.87</strong><span>reported project result</span></div>
+<div class="stat"><small>LANGUAGE</small><strong>PY</strong><span>Python</span></div>
+<div class="stat"><small>YEAR</small><strong>24</strong><span>project period</span></div>
+</div>
+    <div class="case-columns">
+      <div class="case-text fade-in">
+<h3>THE RUN</h3>
+<p>The workflow starts with EDA (exploratory data analysis) to understand the dataset, followed by preprocessing and feature preparation. The trained model then predicts flight prices from the available travel information.</p>
+<ul class="case-list">
+<li><strong style="color:var(--white)">Model:</strong> Random Forest Regressor</li>
+<li><strong style="color:var(--white)">Outcome:</strong> model accuracy of 0.87</li>
+<li><strong style="color:var(--white)">Workflow:</strong> EDA → preprocessing → prediction</li>
+<li><strong style="color:var(--white)">Use case:</strong> dynamic pricing / revenue optimization exploration</li>
+</ul>
+<div class="rule"></div>
+<div class="kicker">HOW TO READ IT</div>
+<p>Think of it like a race weekend: first understand the track (EDA), then prepare the setup (preprocessing), then run the prediction. The model is only the final step.</p>
+</div>
+      <div class="fade-in">
+<div class="demo" id="flightDemo">
+  <div class="demo-top"><small>FRONT-END DEMO / ILLUSTRATIVE PRICE BAND</small><span class="demo-state">MODEL SIMULATION</span></div>
+  <div class="control-grid">
+    <div class="control"><label>Distance index</label><input id="dist" type="range" min="10" max="100" value="58"></div>
+    <div class="control"><label>Stops</label><input id="stops" type="range" min="0" max="2" value="1"></div>
+    <div class="control"><label>Booking lead (days)</label><input id="lead" type="range" min="1" max="60" value="24"></div>
+    <div class="control"><label>Cabin signal</label><select id="cabin"><option value="1">ECONOMY</option><option value="1.7">PREMIUM</option><option value="2.7">BUSINESS</option></select></div>
+  </div>
+  <div class="readout"><div><strong id="priceBand">₹8.3K–₹10.2K</strong><p>Illustrative UI only — this is not the trained Random Forest model.</p></div><div class="signal-list"><div class="signal-item"><span>DISTANCE</span><span id="dOut">58</span></div><div class="signal-item"><span>STOPS</span><span id="sOut">1</span></div><div class="signal-item"><span>LEAD</span><span id="lOut">24D</span></div></div></div>
+</div>
+<script>
+const d=document.getElementById('dist'),s=document.getElementById('stops'),l=document.getElementById('lead'),c=document.getElementById('cabin');
+const band=document.getElementById('priceBand');
+function runFlight(){
+  const base=5800+Number(d.value)*48-Number(l.value)*24+Number(s.value)*850;
+  const low=Math.max(2200,base*Number(c.value));
+  const hi=low+1700+Number(s.value)*300;
+  band.textContent=`₹${(low/1000).toFixed(1)}K–₹${(hi/1000).toFixed(1)}K`;
+  document.getElementById('dOut').textContent=d.value;
+  document.getElementById('sOut').textContent=s.value;
+  document.getElementById('lOut').textContent=l.value+'D';
+}
+[d,s,l,c].forEach(x=>x.addEventListener('input',runFlight));runFlight();
+</script>
+</div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" style="padding-top:20px">
+  <div class="wrap grid-2">
+    <div class="panel panel-pad fade-in">
+      <div class="kicker">ARCHITECTURE</div>
+      <h2 style="font-family:var(--display);font-size:44px;text-transform:uppercase;line-height:.92">DATA → MODEL → OUTPUT</h2>
+      <p style="color:var(--muted);font-size:12.5px;margin-top:12px">The portfolio uses this visual as a product-level explanation, not as a substitute for the original source code.</p>
+    </div>
+    <div class="panel panel-pad fade-in">
+      <div class="kicker">STACK</div>
+      <div class="stack-cloud" style="margin-top:13px"><span class="stack-chip">PYTHON</span><span class="stack-chip">SCIKIT-LEARN</span><span class="stack-chip">RANDOM FOREST</span><span class="stack-chip">FEATURE ENGINEERING</span></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="name">ANANYA BHARDWAJ</div>
+      <small>AI ENGINEER · INDIA · BUILDING FROM THE PIT WALL</small>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
+      <a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">GITHUB ↗</a>
+      <a href="mailto:ananyabhardwaj.tech@gmail.com">EMAIL ↗</a>
+      <a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">RESUME ↗</a>
+    </div>
+  </div>
+</footer>
+</div>
+<div class="toast" aria-live="polite"></div>
+<script src="main.js"></script>
+</body>
+</html>

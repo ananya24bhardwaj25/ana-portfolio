@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects — Ananya Bhardwaj</title>
+<meta name="description" content="Ananya Bhardwaj — Data Science Engineer building ML systems, data pipelines and analytics experiences.">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body data-page="projects.html">
+<div id="race-cursor"></div>
+<canvas id="telemetry-canvas" aria-hidden="true"></canvas>
+<div class="site-shell">
+<div class="topline"></div>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">AB</span><span>ANANYA</span> BHARDWAJ</a>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="projects.html">PROJECTS</a>
+      <a href="about.html">ABOUT</a>
+      <a href="design.html">MEDIA</a>
+      <a href="work-with-me.html">WORK WITH ME</a>
+      <a href="contact.html">CONTACT</a>
+    </div>
+    <div class="nav-actions">
+      <div class="pill"><i class="light"></i> OPEN TO WORK</div>
+      <button class="mobile-toggle" aria-label="Toggle navigation">MENU</button>
+    </div>
+  </div>
+</nav>
+
+<main class="page-pad">
+<section class="wrap">
+  <div class="kicker fade-in">05 // THE GARAGE</div>
+  <h1 class="page-title lg fade-in">PROJECTS<br><span style="color:var(--red)">UNDER LOAD</span></h1>
+  <p class="page-lede fade-in">A small grid of things Ananya has built across machine learning, computer vision and AI systems. Each case explains the problem in plain English first, then shows the engineering behind it.</p>
+
+  <div class="filterbar fade-in">
+    <button class="active" data-filter="all">ALL</button>
+    <button data-filter="ml">ML</button>
+    <button data-filter="vision">VISION</button>
+    <button data-filter="llm">LLM</button>
+  </div>
+
+  <div class="grid-3" id="projectGrid">
+    <a class="project-card fade-in project-item" data-category="ml" href="project-flight-predictor.html">
+      <div><div class="p-top"><span class="tag red">01 · ML</span><span class="p-code">PYTHON</span></div><h3>Flight Price Predictor</h3><p>EDA first, then a prediction model using historical flight data — reaching 0.87 model accuracy.</p><div class="stack"><span class="tag">SCIKIT-LEARN</span><span class="tag">0.87 ACCURACY</span></div></div><div class="go"><span>CASE FILE</span><span>↗</span></div>
+    </a>
+    <a class="project-card fade-in project-item" data-category="vision" href="project-animal-allergy.html">
+      <div><div class="p-top"><span class="tag red">02 · VISION</span><span class="p-code">37 CLASSES</span></div><h3>Animal Allergy Saving System</h3><p>A vision pipeline that classifies pet images and connects the result to allergy-safety guidance. Top 3 at its hackathon.</p><div class="stack"><span class="tag">TENSORFLOW</span><span class="tag">GEMINI</span></div></div><div class="go"><span>CASE FILE</span><span>↗</span></div>
+    </a>
+    <a class="project-card fade-in project-item" data-category="llm" href="project-factcheck-ai.html">
+      <div><div class="p-top"><span class="tag red">03 · LLM</span><span class="p-code">RAG-LIKE</span></div><h3>FactCheck AI</h3><p>An AI system that retrieves evidence first, then uses an LLM to reason over that evidence.</p><div class="stack"><span class="tag">FAISS</span><span class="tag">MISTRAL</span></div></div><div class="go"><span>CASE FILE</span><span>↗</span></div>
+    </a>
+    <article class="project-card fade-in project-item project-card-wide" data-category="llm">
+      <div><div class="p-top"><span class="tag pink">04 · RAG</span><span class="p-code">LEGAL AI</span></div><h3>Apollo — Legal RAG System</h3><p>A retrieval-augmented generation system for legal information, designed around grounded answers instead of unsupported guesses.</p><div class="stack"><span class="tag">LLM</span><span class="tag">RAG</span></div></div><div class="go"><span>WORK SNAPSHOT</span><span>↗</span></div>
+    </article>
+  </div>
+
+  <div class="section" style="padding-bottom:20px">
+    <div class="quote-panel fade-in">
+      <div class="kicker">GARAGE NOTE</div>
+      <h2>THE BEST MODEL IS THE ONE THE TEAM CAN ACTUALLY USE.</h2>
+      <p>That means deployment, reproducibility, clean handoffs and a UI or reporting layer when the audience is not another ML engineer.</p>
+    </div>
+  </div>
+</section>
+</main>
+<script>
+document.querySelectorAll('[data-filter]').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.project-item').forEach(card=>{
+      card.classList.toggle('hide', f!=='all' && card.dataset.category!==f);
+    });
+  });
+});
+</script>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <div class="name">ANANYA BHARDWAJ</div>
+      <small>AI ENGINEER · INDIA · BUILDING FROM THE PIT WALL</small>
+    </div>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
+      <a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">GITHUB ↗</a>
+      <a href="mailto:ananyabhardwaj.tech@gmail.com">EMAIL ↗</a>
+      <a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">RESUME ↗</a>
+    </div>
+  </div>
+</footer>
+</div>
+<div class="toast" aria-live="polite"></div>
+<script src="main.js"></script>
+</body>
+</html>
