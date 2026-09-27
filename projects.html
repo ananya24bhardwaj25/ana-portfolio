@@ -4,99 +4,83 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Projects — Ananya Bhardwaj</title>
-<meta name="description" content="Ananya Bhardwaj — Data Science Engineer building ML systems, data pipelines and analytics experiences.">
+<meta name="description" content="Ananya Bhardwaj — ML, vision and retrieval projects.">
 <link rel="stylesheet" href="style.css">
-
 </head>
-<body data-page="projects.html">
-<div id="race-cursor"></div>
-<canvas id="telemetry-canvas" aria-hidden="true"></canvas>
-<div class="site-shell">
-<div class="topline"></div>
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html"><span class="brand-mark">AB</span><span>ANANYA</span> BHARDWAJ</a>
-    <div class="nav-links">
-      <a href="index.html">HOME</a>
-      <a href="projects.html">PROJECTS</a>
-      <a href="about.html">ABOUT</a>
-      <a href="design.html">MEDIA</a>
-      <a href="work-with-me.html">WORK WITH ME</a>
-      <a href="contact.html">CONTACT</a>
-    </div>
-    <div class="nav-actions">
-      <div class="pill"><i class="light"></i> OPEN TO WORK</div>
-      <button class="mobile-toggle" aria-label="Toggle navigation">MENU</button>
-    </div>
+<body>
+<canvas id="trail"></canvas>
+<div class="kerb l"></div><div class="kerb r"></div>
+<div id="cur"><svg viewBox="0 0 40 64">
+<rect x="5" y="2" width="30" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="2" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="32" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<path d="M20 6 L23 18 L22.5 30 L24.5 36 L24.5 50 L15.5 50 L15.5 36 L17.5 30 L17 18 Z" fill="#b3124f" stroke="#fff" stroke-width="1"/>
+<circle cx="20" cy="27" r="3.6" fill="none" stroke="#fff" stroke-width="1.3"/>
+<path d="M15 33 L10.5 41 L14.5 49 L18 47 L18 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<path d="M25 33 L29.5 41 L25.5 49 L22 47 L22 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<rect x="0" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="33" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="11" y="56" width="18" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+</svg><b id="spd">0 KM/H</b></div>
+<div class="sl" id="sl"></div>
+<div class="rc" id="rc"></div>
+<div class="flash" id="flash"></div>
+<div class="toast" id="toast"></div>
+
+<nav>
+  <b>ANA</b>
+  <div>
+    <a class="l" href="index.html">HOME</a><a class="l" href="projects.html">PROJECTS</a><a class="l" href="contact.html">CONTACT</a>
+    <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button><a class="pill m" href="contact.html"><i></i>OPEN TO WORK</a>
   </div>
 </nav>
 
-<main class="page-pad">
-<section class="wrap">
-  <div class="kicker fade-in">05 // THE GARAGE</div>
-  <h1 class="page-title lg fade-in">PROJECTS<br><span style="color:var(--red)">UNDER LOAD</span></h1>
-  <p class="page-lede fade-in">A small grid of things Ananya has built across machine learning, computer vision and AI systems. Each case explains the problem in plain English first, then shows the engineering behind it.</p>
+<aside class="map" aria-hidden="true">
+  <svg viewBox="0 0 400 270">
+    <path id="trk" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" fill="none" stroke="#eab9c8" stroke-width="7" pathLength="300"/>
+    <path class="tp" style="--o:300;stroke:#140a0e" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:200;stroke:#b3124f" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:100;stroke:#ff6ba8" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <circle id="dot" r="9" fill="#fff" stroke="#b3124f" stroke-width="4"/>
+  </svg>
+  <div class="m"><span id="sec">START</span><b id="lap">0:00.000</b></div><div class="m"><span>DELTA</span><b id="dl">-0.000</b></div><div class="m"><span>GEAR</span><b id="gear">1</b></div>
+</aside>
 
-  <div class="filterbar fade-in">
-    <button class="active" data-filter="all">ALL</button>
-    <button data-filter="ml">ML</button>
-    <button data-filter="vision">VISION</button>
-    <button data-filter="llm">LLM</button>
+<header class="hero page" id="top" data-s="GARAGE">
+  <svg class="hero-track" viewBox="0 0 900 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><path pathLength="1200" d="M60 420C10 330 60 180 200 150L480 90C640 55 720 150 630 230C560 292 630 400 780 410C860 415 880 470 800 478L180 478C100 478 100 450 60 420Z"/></svg>
+  <div>
+    <div class="lights"><u></u><u></u><u></u><u></u><u></u><span class="m" id="ltxt">GARAGE OPEN…</span></div>
+    <div class="strip"><span class="track-ln"></span><svg class="lcar" viewBox="0 0 120 40" aria-hidden="true"><rect x="10" y="26" width="14" height="4" fill="#140a0e"/><rect x="96" y="26" width="14" height="4" fill="#140a0e"/><path d="M14 24 L30 14 L70 12 L92 18 L104 24 L104 28 L14 28Z" fill="#b3124f" stroke="#140a0e" stroke-width="1.5"/><circle cx="28" cy="30" r="8" fill="#140a0e"/><circle cx="92" cy="30" r="8" fill="#140a0e"/></svg></div>
+    <h1 class="d"><span class="a">Projects</span><span class="b">under load</span></h1>
+    <div class="role"><b>SECTOR 3 · THE FINAL PUSH</b><i></i></div>
+    <p class="sub">ML, computer-vision and retrieval systems. Each case file is a teardown: what was built, why it mattered, what the system actually did.</p>
   </div>
+  <div class="board">
+    <h4 class="d m"><span>LIVE TIMING</span><span>GRID</span></h4>
+    <div class="row"><em>P1</em><span>Flight Price Predictor<small>Random Forest · R² 0.87</small></span><b>ML</b></div>
+    <div class="row"><em>P2</em><span>Animal Allergy Saving<small>TinyVGG · top 3</small></span><b>CV</b></div>
+    <div class="row"><em>P3</em><span>FactCheck AI<small>FAISS · Mistral</small></span><b>NLP</b></div>
+    <div class="row"><em>P4</em><span>The Bench<small>LangGraph · Hybrid search</small></span><b>RAG</b></div>
+  </div>
+</header>
 
-  <div class="grid-3" id="projectGrid">
-    <a class="project-card fade-in project-item" data-category="ml" href="project-flight-predictor.html">
-      <div><div class="p-top"><span class="tag red">01 · ML</span><span class="p-code">PYTHON</span></div><h3>Flight Price Predictor</h3><p>EDA first, then a prediction model using historical flight data — reaching 0.87 model accuracy.</p><div class="stack"><span class="tag">SCIKIT-LEARN</span><span class="tag">0.87 ACCURACY</span></div></div><div class="go"><span>CASE FILE</span><span>↗</span></div>
-    </a>
-    <a class="project-card fade-in project-item" data-category="vision" href="project-animal-allergy.html">
-      <div><div class="p-top"><span class="tag red">02 · VISION</span><span class="p-code">37 CLASSES</span></div><h3>Animal Allergy Saving System</h3><p>A vision pipeline that classifies pet images and connects the result to allergy-safety guidance. Top 3 at its hackathon.</p><div class="stack"><span class="tag">TENSORFLOW</span><span class="tag">GEMINI</span></div></div><div class="go"><span>CASE FILE</span><span>↗</span></div>
-    </a>
-    <a class="project-card fade-in project-item" data-category="llm" href="project-factcheck-ai.html">
-      <div><div class="p-top"><span class="tag red">03 · LLM</span><span class="p-code">RAG-LIKE</span></div><h3>FactCheck AI</h3><p>An AI system that retrieves evidence first, then uses an LLM to reason over that evidence.</p><div class="stack"><span class="tag">FAISS</span><span class="tag">MISTRAL</span></div></div><div class="go"><span>CASE FILE</span><span>↗</span></div>
-    </a>
-    <article class="project-card fade-in project-item project-card-wide" data-category="llm">
-      <div><div class="p-top"><span class="tag pink">04 · RAG</span><span class="p-code">LEGAL AI</span></div><h3>Apollo — Legal RAG System</h3><p>A retrieval-augmented generation system for legal information, designed around grounded answers instead of unsupported guesses.</p><div class="stack"><span class="tag">LLM</span><span class="tag">RAG</span></div></div><div class="go"><span>WORK SNAPSHOT</span><span>↗</span></div>
-    </article>
-  </div>
+<section data-s="SECTOR 3">
+  <div class="sh rv"><b>S3</b><div><small class="m">SECTOR 3 · PROJECTS</small><h2 class="d">The last sector</h2><p class="radio"><i>RADIO</i>The last sector decides the lap time. Hover a row: DRS lights up when a project is open.</p></div></div>
+  <div class="lb rv">
+    <a class="r project-item" data-category="ml" href="project-flight-predictor.html"><span class="n">P1</span><h3 class="d">Flight Price Predictor</h3><p>EDA first, then a model that estimates ticket prices from route, dates and airline — 0.87 accuracy.</p><span class="drs">DRS OPEN · ML · 0.87 ACC</span><span class="tag-open">OPEN CASE FILE<i>↗</i></span></a>
+    <a class="r project-item" data-category="vision" href="project-animal-allergy.html"><span class="n">P2</span><h3 class="d">Animal Allergy Saving System</h3><p>Safety-focused classifier to protect animals from allergic reactions. Top 3 at its hackathon.</p><span class="drs">DRS OPEN · TOP 3 FINISH</span><span class="tag-open">OPEN CASE FILE<i>↗</i></span></a>
+    <a class="r project-item" data-category="llm" href="project-factcheck-ai.html"><span class="n">P3</span><h3 class="d">FactCheck AI</h3><p>Checks claims against evidence. Built to fight misinformation.</p><span class="drs">DRS OPEN · NLP</span><span class="tag-open">OPEN CASE FILE<i>↗</i></span></a>
+    <a class="r project-item" data-category="llm" href="project-the-bench.html"><span class="n">P4</span><h3 class="d">The Bench</h3><p>Hybrid retrieval + a LangGraph-orchestrated pipeline that ranks case law and pages through results, statefully.</p><span class="drs">DRS OPEN · RAG · HYBRID SEARCH</span><span class="tag-open">OPEN CASE FILE<i>↗</i></span></a>
+  </div></section>
 
-  <div class="section" style="padding-bottom:20px">
-    <div class="quote-panel fade-in">
-      <div class="kicker">GARAGE NOTE</div>
-      <h2>THE BEST MODEL IS THE ONE THE TEAM CAN ACTUALLY USE.</h2>
-      <p>That means deployment, reproducibility, clean handoffs and a UI or reporting layer when the audience is not another ML engineer.</p>
-    </div>
-  </div>
+<div class="chk"></div>
+<section class="stop" data-s="PIT STOP">
+  <div class="rv"><small class="m">PIT STOP</small>
+  <h2 class="d">Let's <em>work</em> together</h2>
+  <p>A clear problem statement is enough to get the next lap moving.</p>
+  <div class="btns"><a href="contact.html">OPEN CONTACT</a>
 </section>
-</main>
-<script>
-document.querySelectorAll('[data-filter]').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));
-    btn.classList.add('active');
-    const f=btn.dataset.filter;
-    document.querySelectorAll('.project-item').forEach(card=>{
-      card.classList.toggle('hide', f!=='all' && card.dataset.category!==f);
-    });
-  });
-});
-</script>
-
-<footer class="footer">
-  <div class="wrap footer-grid">
-    <div>
-      <div class="name">ANANYA BHARDWAJ</div>
-      <small>AI ENGINEER · INDIA · BUILDING FROM THE PIT WALL</small>
-    </div>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
-      <a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">GITHUB ↗</a>
-      <a href="mailto:ananyabhardwaj.tech@gmail.com">EMAIL ↗</a>
-      <a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">RESUME ↗</a>
-    </div>
-  </div>
-</footer>
-</div>
-<div class="toast" aria-live="polite"></div>
+<footer class="m"><span>ANANYA BHARDWAJ · DATA SCIENCE &amp; ML · INDIA</span><span>CHEQUERED FLAG. THANKS FOR RACING THROUGH.</span></footer>
 <script src="main.js"></script>
 </body>
 </html>

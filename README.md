@@ -13,9 +13,6 @@ A static portfolio for Ananya Bhardwaj built as a motorsport-inspired interface 
 - `project-flight-predictor.html` — EDA → prediction case study
 - `project-animal-allergy.html` — computer-vision case study + top-3 achievement
 - `project-factcheck-ai.html` — retrieval + LLM case study
-- `about.html` — rewritten profile, stack, education, achievements and leadership
-- `design.html` — media, marketing, Bharatanatyam, photography, video editing and graphic design
-- `work-with-me.html` — AI/RAG, frontend, database, cloud and Apollo Legal work
 - `contact.html` — contact
 - `style.css` — shared pink/white F1 system
 - `main.js` — cursor, telemetry, navigation and animations
@@ -27,7 +24,7 @@ A static portfolio for Ananya Bhardwaj built as a motorsport-inspired interface 
 - AI engineering, LLMs & RAG systems, UI/frontend, databases, web design, GCP + Azure
 - Animal Allergy Saving System: top 3 hackathon finish
 - Flight project: EDA before prediction; reported model accuracy 0.87
-- Apollo — Legal RAG System
+- The Bench— Legal RAG System
 - Bharatanatyam: 6-year diploma
 - Head of Media — Cactus Fashion Club
 - Media interests: Bharatanatyam, photography, video editing, graphic design

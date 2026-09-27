@@ -4,129 +4,128 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>FactCheck AI — Ananya Bhardwaj</title>
-<meta name="description" content="Ananya Bhardwaj — Data Science Engineer building ML systems, data pipelines and analytics experiences.">
+<meta name="description" content="Case file: FactCheck AI.">
 <link rel="stylesheet" href="style.css">
-
 </head>
-<body data-page="project-factcheck-ai.html">
-<div id="race-cursor"></div>
-<canvas id="telemetry-canvas" aria-hidden="true"></canvas>
-<div class="site-shell">
-<div class="topline"></div>
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html"><span class="brand-mark">AB</span><span>ANANYA</span> BHARDWAJ</a>
-    <div class="nav-links">
-      <a href="index.html">HOME</a>
-      <a href="projects.html">PROJECTS</a>
-      <a href="about.html">ABOUT</a>
-      <a href="design.html">MEDIA</a>
-      <a href="work-with-me.html">WORK WITH ME</a>
-      <a href="contact.html">CONTACT</a>
-    </div>
-    <div class="nav-actions">
-      <div class="pill"><i class="light"></i> OPEN TO WORK</div>
-      <button class="mobile-toggle" aria-label="Toggle navigation">MENU</button>
-    </div>
+<body>
+<canvas id="trail"></canvas>
+<div class="kerb l"></div><div class="kerb r"></div>
+<div id="cur"><svg viewBox="0 0 40 64">
+<rect x="5" y="2" width="30" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="2" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="32" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<path d="M20 6 L23 18 L22.5 30 L24.5 36 L24.5 50 L15.5 50 L15.5 36 L17.5 30 L17 18 Z" fill="#b3124f" stroke="#fff" stroke-width="1"/>
+<circle cx="20" cy="27" r="3.6" fill="none" stroke="#fff" stroke-width="1.3"/>
+<path d="M15 33 L10.5 41 L14.5 49 L18 47 L18 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<path d="M25 33 L29.5 41 L25.5 49 L22 47 L22 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<rect x="0" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="33" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="11" y="56" width="18" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+</svg><b id="spd">0 KM/H</b></div>
+<div class="sl" id="sl"></div>
+<div class="rc" id="rc"></div>
+<div class="flash" id="flash"></div>
+<div class="toast" id="toast"></div>
+
+<nav>
+  <b>ANA</b>
+  <div>
+    <a class="l" href="index.html">HOME</a><a class="l" href="projects.html">PROJECTS</a><a class="l" href="contact.html">CONTACT</a>
+    <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button><a class="pill m" href="contact.html"><i></i>OPEN TO WORK</a>
   </div>
 </nav>
 
-<main>
-<section class="detail-hero">
-  <div class="wrap detail-hero-grid">
-    <div class="fade-in">
-      <div class="kicker">CASE 03 // LLM / RETRIEVAL</div>
-      <h1>FactCheck<br>AI</h1>
-      <div class="detail-meta"><span class="tag">PYTHON</span><span class="tag">FAISS</span><span class="tag">SENTENCETRANSFORMERS</span><span class="tag">MISTRAL</span><span class="tag">OLLAMA</span><span class="tag">STREAMLIT</span></div>
-      <p class="detail-copy">An AI fact-checking system that searches for relevant evidence first, then uses an LLM to reason over what it found.</p>
-      <div class="hero-actions"><a class="btn red" href="projects.html">← BACK TO GARAGE</a><a class="btn dark" href="contact.html">DISCUSS A PROJECT</a></div>
+<aside class="map" aria-hidden="true">
+  <svg viewBox="0 0 400 270">
+    <path id="trk" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" fill="none" stroke="#eab9c8" stroke-width="7" pathLength="300"/>
+    <path class="tp" style="--o:300;stroke:#140a0e" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:200;stroke:#b3124f" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:100;stroke:#ff6ba8" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <circle id="dot" r="9" fill="#fff" stroke="#b3124f" stroke-width="4"/>
+  </svg>
+  <div class="m"><span id="sec">START</span><b id="lap">0:00.000</b></div><div class="m"><span>DELTA</span><b id="dl">-0.000</b></div><div class="m"><span>GEAR</span><b id="gear">1</b></div>
+</aside>
+
+<header class="hero page" id="top" data-s="CASE FILE">
+  <svg class="hero-track" viewBox="0 0 900 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><path pathLength="1200" d="M60 420C10 330 60 180 200 150L480 90C640 55 720 150 630 230C560 292 630 400 780 410C860 415 880 470 800 478L180 478C100 478 100 450 60 420Z"/></svg>
+  <div>
+    <div class="lights"><u></u><u></u><u></u><u></u><u></u><span class="m" id="ltxt">CASE 03 · LLM…</span></div>
+    <div class="strip"><span class="track-ln"></span><svg class="lcar" viewBox="0 0 120 40" aria-hidden="true"><rect x="10" y="26" width="14" height="4" fill="#140a0e"/><rect x="96" y="26" width="14" height="4" fill="#140a0e"/><path d="M14 24 L30 14 L70 12 L92 18 L104 24 L104 28 L14 28Z" fill="#b3124f" stroke="#140a0e" stroke-width="1.5"/><circle cx="28" cy="30" r="8" fill="#140a0e"/><circle cx="92" cy="30" r="8" fill="#140a0e"/></svg></div>
+    <h1 class="d"><span class="a">FactCheck</span><span class="b">AI</span></h1>
+    <div class="role"><b>P3 · LLM / RETRIEVAL</b><i></i></div>
+    <p class="sub">Enter a claim → retrieve the most relevant evidence first → an LLM reads that evidence and gives a grounded verdict.</p>
+    <div class="btns left" style="margin-top:22px;justify-content:flex-start"><a href="projects.html">BACK TO GARAGE</a><a href="contact.html">DISCUSS A PROJECT</a></div>
+  </div>
+  <div class="board">
+    <h4 class="d m"><span>LIVE TIMING</span><span>P3</span></h4>
+    <div class="row"><em>01</em><span>Retrieval<small>Evidence search</small></span><b>FAISS</b></div>
+    <div class="row"><em>02</em><span>Embeddings<small>SentenceTransformers</small></span><b>ST</b></div>
+    <div class="row"><em>03</em><span>LLM<small>Mistral via Ollama</small></span><b>MIS</b></div>
+    <div class="row"><em>04</em><span>Verdicts<small>Supported / Refuted / Unverifiable</small></span><b>3×</b></div>
+    <div class="row"><em>05</em><span>Index<small>Vector similarity search</small></span><b>ANN</b></div>
+    <div class="row"><em>06</em><span>Runtime<small>Local inference</small></span><b>LOCAL</b></div>
+    <div class="row"><em>07</em><span>UI<small>Streamlit</small></span><b>WEB</b></div>
+  </div>
+</header>
+
+<section data-s="CASE FILE">
+  <div class="sh rv"><b>P3</b><div><small class="m">THE RUN</small><h2 class="d">Retrieve, then reason</h2><p class="radio"><i>RADIO</i>The architecture separates retrieval from reasoning, so the LLM is grounded instead of guessing from memory.</p></div></div>
+  <div class="g2">
+    <div class="card rv">
+      <span class="m">SESSION NOTES</span>
+      <h3 class="d">What shipped</h3>
+      <p>An AI-powered fact-checking tool that first retrieves evidence with SentenceTransformers and FAISS, then sends that context to Mistral through Ollama.</p>
+      <ul class="list">
+        <li>Semantic evidence retrieval with SentenceTransformers</li>
+        <li>Fast nearest-neighbor search using FAISS</li>
+        <li>Mistral analysis via Ollama</li>
+        <li>Verdicts: Supported, Refuted, Unverifiable — with reasoning</li>
+        <li>Pipeline: claim → embed → retrieve top-k evidence → pass to LLM as context</li>
+        <li>Grounding: the LLM only reasons over retrieved evidence, not free recall</li>
+        <li>Runs fully local: Ollama serves Mistral, no external API calls</li>
+      </ul>
+      <div class="chips"><span class="chip">PYTHON</span><span class="chip">FAISS</span><span class="chip">SENTENCETRANSFORMERS</span><span class="chip">MISTRAL</span><span class="chip">OLLAMA</span><span class="chip">STREAMLIT</span><span class="chip">RAG</span></div>
     </div>
-    <div class="detail-rail fade-in"><small>CASE FILE STATUS</small><strong>DEMO<br>READY</strong><p style="color:var(--muted);font-size:11px;margin-top:9px">This page includes small front-end visualizers to make the system easier to explore.</p></div>
+    <div class="demo rv">
+      <h4><span>FRONT-END DEMO</span><span class="m">SAMPLE CHECK</span></h4>
+      <label>Claim</label>
+      <textarea id="claim">The Earth orbits the Sun.</textarea>
+      <div class="btns left" style="margin-top:16px;justify-content:flex-start">
+        <button type="button" id="verifyBtn">RUN CHECK</button>
+        <button type="button" id="sampleBtn">LOAD SAMPLE</button>
+      </div>
+      <div class="out"><b id="verdict">SUPPORTED</b><p id="reason">Demo response: evidence retrieval would precede the reasoning layer in the full application.</p>
+        <div class="st"><span>EMBEDDINGS</span><span>ON</span></div>
+        <div class="st"><span>FAISS</span><span>READY</span></div>
+        <div class="st"><span>LLM</span><span>MISTRAL</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g3 rv" style="margin-top:26px">
+    <div class="flow-step"><em>01</em><h4 class="d">Embed the claim</h4><p>SentenceTransformers turns the claim into a vector.</p></div>
+    <div class="flow-step"><em>02</em><h4 class="d">Retrieve evidence</h4><p>FAISS does a nearest-neighbor search over an indexed evidence set.</p></div>
+    <div class="flow-step"><em>03</em><h4 class="d">Grounded verdict</h4><p>Mistral, via Ollama, reasons only over the retrieved evidence.</p></div>
+  </div>
+
+  <div class="gloss rv" style="margin-top:26px">
+    <h4 class="d m"><span>RAG</span><span>PIPELINE</span></h4>
+    <div class="gitem"><em>01</em><b>Embedding model</b><span>SentenceTransformers converts claim + evidence into vectors</span></div>
+    <div class="gitem"><em>02</em><b>Vector index</b><span>FAISS for fast approximate nearest-neighbor search</span></div>
+    <div class="gitem"><em>03</em><b>Reasoning model</b><span>Mistral, served locally through Ollama</span></div>
+    <div class="gitem"><em>04</em><b>Grounding</b><span>Retrieved evidence is passed as context so the LLM doesn't answer from memory alone</span></div>
+    <div class="gitem"><em>05</em><b>Output</b><span>One of three verdicts — Supported, Refuted, Unverifiable — plus the reasoning behind it</span></div>
+    <div class="gitem"><em>06</em><b>Interface</b><span>Streamlit front end for entering a claim and reading the verdict</span></div>
   </div>
 </section>
 
-<section class="case-section">
-  <div class="wrap">
-    <div class="stats-grid fade-in">
-<div class="stat"><small>RETRIEVAL</small><strong>FAISS</strong><span>evidence search layer</span></div>
-<div class="stat"><small>EMBEDDINGS</small><strong>ST</strong><span>SentenceTransformers</span></div>
-<div class="stat"><small>LLM</small><strong>MIS</strong><span>Mistral via Ollama</span></div>
-<div class="stat"><small>OUTPUT</small><strong>3×</strong><span>claim verdict classes</span></div>
-</div>
-    <div class="case-columns">
-      <div class="case-text fade-in">
-<h3>HOW IT WORKS</h3>
-<p>A claim enters the system, relevant evidence is retrieved, and that evidence is passed to the language model before a verdict is produced. In simple terms: search first, reason second.</p>
-<ul class="case-list">
-<li>Finds relevant evidence with semantic search</li>
-<li>Uses FAISS for fast evidence retrieval</li>
-<li>Uses Mistral through Ollama for the reasoning step</li>
-<li>Returns Supported, Refuted or Unverifiable with reasoning</li>
-</ul>
-<div class="rule"></div>
-<div class="kicker">SYSTEM THINKING</div>
-<p>The key idea is simple: give the model evidence before asking it to explain the claim. That makes the workflow easier to understand and audit.</p>
-</div>
-      <div class="fade-in">
-<div class="demo" id="factDemo">
-  <div class="demo-top"><small>FRONT-END DEMO / SAMPLE CLAIM CHECK</small><span class="demo-state">RETRIEVE → VERIFY</span></div>
-  <div class="control">
-    <label>Claim</label>
-    <textarea id="claim">The Earth orbits the Sun.</textarea>
-  </div>
-  <div class="hero-actions" style="margin-top:10px"><button class="btn red" id="verifyBtn" type="button">RUN CHECK →</button><button class="btn dark" id="sampleBtn" type="button">LOAD SAMPLE</button></div>
-  <div class="readout"><div><strong id="verdict">SUPPORTED</strong><p id="reason">Demo response: evidence retrieval would precede the reasoning layer in the full application.</p></div><div class="signal-list"><div class="signal-item"><span>EMBEDDINGS</span><span>ON</span></div><div class="signal-item"><span>FAISS</span><span>READY</span></div><div class="signal-item"><span>LLM</span><span>MISTRAL</span></div></div></div>
-</div>
-<script>
-const claim=document.getElementById('claim'), verdict=document.getElementById('verdict'), reason=document.getElementById('reason');
-document.getElementById('verifyBtn').addEventListener('click',()=>{
-  const text=claim.value.trim().toLowerCase();
-  if(text.includes('earth')&&text.includes('sun')){
-    verdict.textContent='SUPPORTED'; reason.textContent='Sample demo: this claim is treated as supported. In the original system, retrieved evidence would be passed into Mistral for the final verdict.';
-  }else if(text.includes('2+2')||text.includes('moon is made of cheese')){
-    verdict.textContent='REFUTED'; reason.textContent='Sample demo: this claim is treated as refuted. This UI does not call the original model.';
-  }else{
-    verdict.textContent='UNVERIFIABLE'; reason.textContent='Sample demo: no deterministic evidence is configured for this claim. The full pipeline would retrieve evidence first.';
-  }
-});
-document.getElementById('sampleBtn').addEventListener('click',()=>{claim.value='The Earth orbits the Sun.';});
-</script>
-</div>
-    </div>
-  </div>
+<div class="chk"></div>
+<section class="stop" data-s="PIT STOP">
+  <div class="rv"><small class="m">NEXT</small>
+  <h2 class="d">Back to the <em>garage</em></h2>
+  <div class="btns"><a href="projects.html">ALL PROJECTS</a><a href="contact.html">CONTACT</a></div></div>
 </section>
-
-<section class="case-section" style="padding-top:20px">
-  <div class="wrap grid-2">
-    <div class="panel panel-pad fade-in">
-      <div class="kicker">ARCHITECTURE</div>
-      <h2 style="font-family:var(--display);font-size:44px;text-transform:uppercase;line-height:.92">DATA → MODEL → OUTPUT</h2>
-      <p style="color:var(--muted);font-size:12.5px;margin-top:12px">The portfolio uses this visual as a product-level explanation, not as a substitute for the original source code.</p>
-    </div>
-    <div class="panel panel-pad fade-in">
-      <div class="kicker">STACK</div>
-      <div class="stack-cloud" style="margin-top:13px"><span class="stack-chip">PYTHON</span><span class="stack-chip">FAISS</span><span class="stack-chip">SENTENCETRANSFORMERS</span><span class="stack-chip">MISTRAL</span><span class="stack-chip">OLLAMA</span><span class="stack-chip">STREAMLIT</span></div>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer class="footer">
-  <div class="wrap footer-grid">
-    <div>
-      <div class="name">ANANYA BHARDWAJ</div>
-      <small>AI ENGINEER · INDIA · BUILDING FROM THE PIT WALL</small>
-    </div>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
-      <a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">GITHUB ↗</a>
-      <a href="mailto:ananyabhardwaj.tech@gmail.com">EMAIL ↗</a>
-      <a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">RESUME ↗</a>
-    </div>
-  </div>
-</footer>
-</div>
-<div class="toast" aria-live="polite"></div>
+<footer class="m"><span>ANANYA BHARDWAJ · DATA SCIENCE &amp; ML · INDIA</span><span>CHEQUERED FLAG. THANKS FOR RACING THROUGH.</span></footer>
 <script src="main.js"></script>
 </body>
 </html>

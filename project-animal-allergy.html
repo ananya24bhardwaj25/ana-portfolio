@@ -4,129 +4,130 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Animal Allergy Saving System — Ananya Bhardwaj</title>
-<meta name="description" content="Ananya Bhardwaj — Data Science Engineer building ML systems, data pipelines and analytics experiences.">
+<meta name="description" content="Case file: Animal Allergy Saving System.">
 <link rel="stylesheet" href="style.css">
-
 </head>
-<body data-page="project-animal-allergy.html">
-<div id="race-cursor"></div>
-<canvas id="telemetry-canvas" aria-hidden="true"></canvas>
-<div class="site-shell">
-<div class="topline"></div>
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html"><span class="brand-mark">AB</span><span>ANANYA</span> BHARDWAJ</a>
-    <div class="nav-links">
-      <a href="index.html">HOME</a>
-      <a href="projects.html">PROJECTS</a>
-      <a href="about.html">ABOUT</a>
-      <a href="design.html">MEDIA</a>
-      <a href="work-with-me.html">WORK WITH ME</a>
-      <a href="contact.html">CONTACT</a>
-    </div>
-    <div class="nav-actions">
-      <div class="pill"><i class="light"></i> OPEN TO WORK</div>
-      <button class="mobile-toggle" aria-label="Toggle navigation">MENU</button>
-    </div>
+<body>
+<canvas id="trail"></canvas>
+<div class="kerb l"></div><div class="kerb r"></div>
+<div id="cur"><svg viewBox="0 0 40 64">
+<rect x="5" y="2" width="30" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="2" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="32" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<path d="M20 6 L23 18 L22.5 30 L24.5 36 L24.5 50 L15.5 50 L15.5 36 L17.5 30 L17 18 Z" fill="#b3124f" stroke="#fff" stroke-width="1"/>
+<circle cx="20" cy="27" r="3.6" fill="none" stroke="#fff" stroke-width="1.3"/>
+<path d="M15 33 L10.5 41 L14.5 49 L18 47 L18 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<path d="M25 33 L29.5 41 L25.5 49 L22 47 L22 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<rect x="0" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="33" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="11" y="56" width="18" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+</svg><b id="spd">0 KM/H</b></div>
+<div class="sl" id="sl"></div>
+<div class="rc" id="rc"></div>
+<div class="flash" id="flash"></div>
+<div class="toast" id="toast"></div>
+
+<nav>
+  <b>ANA</b>
+  <div>
+    <a class="l" href="index.html">HOME</a><a class="l" href="projects.html">PROJECTS</a><<a class="l" href="contact.html">CONTACT</a>
+    <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button><a class="pill m" href="contact.html"><i></i>OPEN TO WORK</a>
   </div>
 </nav>
 
-<main>
-<section class="detail-hero">
-  <div class="wrap detail-hero-grid">
-    <div class="fade-in">
-      <div class="kicker">CASE 02 // COMPUTER VISION</div>
-      <h1>Animal<br>Allergy<br>Saving<br>System</h1>
-      <div class="detail-meta"><span class="tag">PYTHON</span><span class="tag">TENSORFLOW</span><span class="tag">TINYVGG</span><span class="tag">STREAMLIT</span><span class="tag">GEMINI API</span></div>
-      <p class="detail-copy">A computer-vision system that looks at a pet image, identifies the class, and then helps turn that prediction into allergy-safety information.</p>
-      <div class="hero-actions"><a class="btn red" href="projects.html">← BACK TO GARAGE</a><a class="btn dark" href="contact.html">DISCUSS A PROJECT</a></div>
-    </div>
-    <div class="detail-rail fade-in"><small>CASE FILE STATUS</small><strong>DEMO<br>READY</strong><p style="color:var(--muted);font-size:11px;margin-top:9px">This page includes small front-end visualizers to make the system easier to explore.</p></div>
+<aside class="map" aria-hidden="true">
+  <svg viewBox="0 0 400 270">
+    <path id="trk" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" fill="none" stroke="#eab9c8" stroke-width="7" pathLength="300"/>
+    <path class="tp" style="--o:300;stroke:#140a0e" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:200;stroke:#b3124f" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:100;stroke:#ff6ba8" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <circle id="dot" r="9" fill="#fff" stroke="#b3124f" stroke-width="4"/>
+  </svg>
+  <div class="m"><span id="sec">START</span><b id="lap">0:00.000</b></div><div class="m"><span>DELTA</span><b id="dl">-0.000</b></div><div class="m"><span>GEAR</span><b id="gear">1</b></div>
+</aside>
+
+<header class="hero page" id="top" data-s="CASE FILE">
+  <svg class="hero-track" viewBox="0 0 900 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><path pathLength="1200" d="M60 420C10 330 60 180 200 150L480 90C640 55 720 150 630 230C560 292 630 400 780 410C860 415 880 470 800 478L180 478C100 478 100 450 60 420Z"/></svg>
+  <div>
+    <div class="lights"><u></u><u></u><u></u><u></u><u></u><span class="m" id="ltxt">CASE 02 · VISION…</span></div>
+    <div class="strip"><span class="track-ln"></span><svg class="lcar" viewBox="0 0 120 40" aria-hidden="true"><rect x="10" y="26" width="14" height="4" fill="#140a0e"/><rect x="96" y="26" width="14" height="4" fill="#140a0e"/><path d="M14 24 L30 14 L70 12 L92 18 L104 24 L104 28 L14 28Z" fill="#b3124f" stroke="#140a0e" stroke-width="1.5"/><circle cx="28" cy="30" r="8" fill="#140a0e"/><circle cx="92" cy="30" r="8" fill="#140a0e"/></svg></div>
+    <h1 class="d"><span class="a">Animal</span><span class="b">Allergy System</span></h1>
+    <div class="role"><b>P2 · COMPUTER VISION</b><i></i></div>
+    <p class="sub">Upload a pet photo → the model identifies the animal or breed → the system connects that result with allergy-related food information.</p>
+    <div class="btns left" style="margin-top:22px;justify-content:flex-start"><a href="projects.html">BACK TO GARAGE</a><a href="contact.html">DISCUSS A PROJECT</a></div>
   </div>
+  <div class="board">
+    <h4 class="d m"><span>LIVE TIMING</span><span>P2</span></h4>
+    <div class="row"><em>01</em><span>Classes<small>Pet image categories</small></span><b data-n="37">0</b></div>
+    <div class="row"><em>02</em><span>Model<small>TinyVGG CNN</small></span><b>VGG</b></div>
+    <div class="row"><em>03</em><span>UI<small>Streamlit</small></span><b>WEB</b></div>
+    <div class="row"><em>04</em><span>AI layer<small>Gemini API</small></span><b>GEM</b></div>
+    <div class="row"><em>05</em><span>Augmentation<small>Flip, rotate, zoom, color-jitter</small></span><b>ON</b></div>
+    <div class="row"><em>06</em><span>Framework<small>TensorFlow / Keras</small></span><b>TF</b></div>
+    <div class="row"><em>07</em><span>Result<small>Hackathon standing</small></span><b>TOP 3</b></div>
+  </div>
+</header>
+
+<section data-s="CASE FILE">
+  <div class="sh rv"><b>P2</b><div><small class="m">THE RUN</small><h2 class="d">Classifier to insight</h2><p class="radio"><i>RADIO</i>The important bit is the bridge from model output to a recommendation a person can use.</p></div></div>
+  <div class="g2">
+    <div class="card rv">
+      <span class="m">SESSION NOTES</span>
+      <h3 class="d">What shipped</h3>
+      <p>Created a CNN using a TinyVGG architecture to classify pet images into 37 categories, added data augmentation and deployed through Streamlit.</p>
+      <ul class="list">
+        <li>37-category image-classification target</li>
+        <li>TinyVGG-inspired convolutional architecture</li>
+        <li>Data augmentation to strengthen image learning</li>
+        <li>Gemini API for breed-specific pet-food allergy insights</li>
+        <li>Preprocessing: resize + normalize, class-balanced sampling across the 37 categories</li>
+        <li>Augmentation: random flip, rotation, zoom and colour-jitter to reduce overfitting</li>
+        <li>Output: predicted species/breed passed to Gemini for allergy-relevant food guidance</li>
+      </ul>
+      <div class="chips"><span class="chip">PYTHON</span><span class="chip">TENSORFLOW</span><span class="chip">TINYVGG</span><span class="chip">STREAMLIT</span><span class="chip">GEMINI API</span><span class="chip">KERAS</span><span class="chip">DATA AUGMENTATION</span></div>
+    </div>
+    <div class="demo rv">
+      <h4><span>FRONT-END DEMO</span><span class="m">SAMPLE SCAN</span></h4>
+      <label>Select a sample input</label>
+      <select id="petType">
+        <option>Sample Pet Image A</option>
+        <option>Sample Pet Image B</option>
+        <option>Sample Pet Image C</option>
+      </select>
+      <div class="out"><b id="petResult">CLASS 12</b><p id="petText">Confidence 94% · recommendation layer ready for Gemini enrichment.</p>
+        <div class="st"><span>CLASSES</span><span>37</span></div>
+        <div class="st"><span>AUGMENTATION</span><span>ON</span></div>
+        <div class="st"><span>STREAMLIT</span><span>READY</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g3 rv" style="margin-top:26px">
+    <div class="flow-step"><em>01</em><h4 class="d">Upload photo</h4><p>A pet image comes in through the Streamlit interface.</p></div>
+    <div class="flow-step"><em>02</em><h4 class="d">Classify</h4><p>TinyVGG predicts the species/breed from 37 trained categories.</p></div>
+    <div class="flow-step"><em>03</em><h4 class="d">Allergy insight</h4><p>Gemini turns that class into breed-specific food-allergy guidance.</p></div>
+  </div>
+
+  <div class="gloss rv" style="margin-top:26px">
+    <h4 class="d m"><span>MODEL</span><span>DETAIL</span></h4>
+    <div class="gitem"><em>01</em><b>Architecture</b><span>TinyVGG-inspired CNN: stacked conv + pool blocks feeding a dense classifier head</span></div>
+    <div class="gitem"><em>02</em><b>Classes</b><span>37 pet categories, trained on a labelled image set</span></div>
+    <div class="gitem"><em>03</em><b>Augmentation</b><span>Flip, rotation, zoom and colour-jitter applied during training</span></div>
+    <div class="gitem"><em>04</em><b>Serving</b><span>Streamlit app for upload + prediction, no separate backend</span></div>
+    <div class="gitem"><em>05</em><b>Enrichment</b><span>Gemini API maps the predicted class to allergy-relevant food notes</span></div>
+    <div class="gitem"><em>06</em><b>Result</b><span>Top 3 finish at its hackathon</span></div>
+  </div>
+
+  <div class="podium rv"><b>P3</b><div><span class="m">PODIUM</span><p>Top 3 finish at the hackathon — the product layer is what made the classifier useful.</p></div></div>
 </section>
 
-<section class="case-section">
-  <div class="wrap">
-    <div class="stats-grid fade-in">
-<div class="stat"><small>CLASSES</small><strong>37</strong><span>pet image categories</span></div>
-<div class="stat"><small>MODEL</small><strong>VGG</strong><span>TinyVGG CNN</span></div>
-<div class="stat"><small>UI</small><strong>WEB</strong><span>Streamlit deployment</span></div>
-<div class="stat"><small>RESULT</small><strong>TOP 3</strong><span>hackathon finish</span></div>
-</div>
-    <div class="case-columns">
-      <div class="case-text fade-in">
-<h3>THE RUN</h3>
-<p>The system takes a pet image as input. The vision model classifies the image into one of 37 categories, and the application then uses that result to surface allergy-related guidance.</p>
-<ul class="case-list">
-<li>37-category image classification</li>
-<li>TinyVGG-inspired CNN for the vision step</li>
-<li>Data augmentation to make the model more robust to image variation</li>
-<li>Gemini API used for breed-specific pet-food allergy insights</li>
-</ul>
-<div class="rule"></div>
-<div class="kicker">THE BIG RESULT</div>
-<p>The project placed in the top 3 at its hackathon. The useful part is the full flow: image → prediction → understandable allergy guidance.</p>
-</div>
-      <div class="fade-in">
-<div class="demo" id="animalDemo">
-  <div class="demo-top"><small>FRONT-END DEMO / SAMPLE SCAN</small><span class="demo-state">VISION PIPELINE</span></div>
-  <div class="control">
-    <label>Select a sample input</label>
-    <select id="petType">
-      <option>Sample Pet Image A</option>
-      <option>Sample Pet Image B</option>
-      <option>Sample Pet Image C</option>
-    </select>
-  </div>
-  <div class="readout"><div><strong id="petResult">CLASS 12</strong><p id="petText">Confidence 94% · recommendation layer ready for Gemini enrichment.</p></div><div class="signal-list"><div class="signal-item"><span>CLASSES</span><span>37</span></div><div class="signal-item"><span>AUGMENTATION</span><span>ON</span></div><div class="signal-item"><span>STREAMLIT</span><span>READY</span></div></div></div>
-</div>
-<script>
-const pet=document.getElementById('petType');const result=document.getElementById('petResult');const txt=document.getElementById('petText');
-pet.addEventListener('change',()=>{
-  const map={
-    'Sample Pet Image A':['CLASS 12','Confidence 94% · recommendation layer ready for Gemini enrichment.'],
-    'Sample Pet Image B':['CLASS 27','Confidence 91% · model output ready for allergy-context generation.'],
-    'Sample Pet Image C':['CLASS 04','Confidence 89% · secondary explanation layer available.']
-  };
-  result.textContent=map[pet.value][0];txt.textContent=map[pet.value][1];
-});
-</script>
-</div>
-    </div>
-  </div>
+<div class="chk"></div>
+<section class="stop" data-s="PIT STOP">
+  <div class="rv"><small class="m">NEXT</small>
+  <h2 class="d">Back to the <em>garage</em></h2>
+  <div class="btns"><a href="projects.html">ALL PROJECTS</a><a href="contact.html">CONTACT</a></div></div>
 </section>
-
-<section class="case-section" style="padding-top:20px">
-  <div class="wrap grid-2">
-    <div class="panel panel-pad fade-in">
-      <div class="kicker">ARCHITECTURE</div>
-      <h2 style="font-family:var(--display);font-size:44px;text-transform:uppercase;line-height:.92">DATA → MODEL → OUTPUT</h2>
-      <p style="color:var(--muted);font-size:12.5px;margin-top:12px">The portfolio uses this visual as a product-level explanation, not as a substitute for the original source code.</p>
-    </div>
-    <div class="panel panel-pad fade-in">
-      <div class="kicker">STACK</div>
-      <div class="stack-cloud" style="margin-top:13px"><span class="stack-chip">PYTHON</span><span class="stack-chip">TENSORFLOW</span><span class="stack-chip">TINYVGG</span><span class="stack-chip">STREAMLIT</span><span class="stack-chip">GEMINI API</span></div>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer class="footer">
-  <div class="wrap footer-grid">
-    <div>
-      <div class="name">ANANYA BHARDWAJ</div>
-      <small>AI ENGINEER · INDIA · BUILDING FROM THE PIT WALL</small>
-    </div>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
-      <a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">GITHUB ↗</a>
-      <a href="mailto:ananyabhardwaj.tech@gmail.com">EMAIL ↗</a>
-      <a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">RESUME ↗</a>
-    </div>
-  </div>
-</footer>
-</div>
-<div class="toast" aria-live="polite"></div>
+<footer class="m"><span>ANANYA BHARDWAJ · DATA SCIENCE &amp; ML · INDIA</span><span>CHEQUERED FLAG. THANKS FOR RACING THROUGH.</span></footer>
 <script src="main.js"></script>
 </body>
 </html>

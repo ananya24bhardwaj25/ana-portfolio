@@ -3,181 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ananya Bhardwaj — AI Engineer</title>
-<meta name="description" content="Ananya Bhardwaj — Computer Science (AIML) graduate working across AI engineering, LLMs, RAG, frontend, databases and cloud.">
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#f7e6ea;--pk:#eab9c8;--mg:#b3124f;--dk:#7d0d3a;--ink:#140a0e;--w:#fff}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
-html.nc,html.nc *{cursor:none!important}
-body:before{content:"";position:fixed;inset:0;z-index:-2;background-color:var(--bg);background-image:repeating-linear-gradient(45deg,rgba(179,18,79,.06) 0 2px,transparent 2px 12px),repeating-linear-gradient(-45deg,rgba(179,18,79,.05) 0 2px,transparent 2px 12px),radial-gradient(1300px 750px at 50% -6%,rgba(255,255,255,.6),transparent 62%);background-size:28px 28px,28px 28px,100% 100%;animation:weave 46s linear infinite}
-.kerb{position:fixed;top:0;bottom:0;width:6px;z-index:6;pointer-events:none;background:repeating-linear-gradient(135deg,var(--mg) 0 9px,#fff 9px 18px)}
-.kerb.l{left:0}.kerb.r{right:0}
-@keyframes weave{to{background-position:280px 280px,-280px 280px,0 0}}
-body:after{content:"";position:fixed;left:0;right:0;top:-160px;height:160px;z-index:50;pointer-events:none;background:linear-gradient(transparent,rgba(179,18,79,.09),transparent);animation:scan 7s linear infinite}
-@keyframes scan{to{top:100%}}
-a{color:inherit;text-decoration:none}
-.d{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-weight:400;line-height:.95}
-.m{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em}
-nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:rgba(247,230,234,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(125,13,58,.15)}
-nav b{font-family:Anton;letter-spacing:.06em;font-weight:400;font-size:20px;color:var(--mg)}
-nav div{display:flex;gap:22px;align-items:center}nav a.act:after{width:100%}
-nav a.l{font-size:13px;font-weight:500;position:relative}
-nav a.l:after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--mg);transition:.3s}
-nav a.l:hover:after{width:100%}
-.pill{display:flex;gap:8px;align-items:center;background:var(--ink);color:#fff;padding:6px 14px;border-radius:99px}
-.pill i,.st i{width:8px;height:8px;border-radius:50%;background:#ff2d87;box-shadow:0 0 10px #ff2d87;animation:bl 1.2s infinite}
-@keyframes bl{50%{opacity:.25}}
-section,header{padding:120px 5vw 90px;position:relative}
-.hero{min-height:100vh;display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center;padding-top:130px}
-.lights{display:flex;gap:10px;margin-bottom:26px;align-items:center}
-.lights u{width:34px;height:34px;border-radius:50%;background:#2a1a20;border:3px solid var(--ink);transition:.15s}
-.lights u.on{background:#ff1f4b;box-shadow:0 0 22px #ff1f4b}
-.lights span{margin-left:12px}
-h1 span{display:block;opacity:0;transform:translateY(50px);transition:1s cubic-bezier(.2,.8,.2,1)}
-h1 .a{font-size:clamp(76px,17vw,250px);color:var(--mg)}
-h1 .b{font-size:clamp(46px,10vw,150px);color:transparent;-webkit-text-stroke:2px var(--dk);transition-delay:.15s}
-.go h1 span{opacity:1;transform:none}
-.sub{max-width:520px;margin-top:22px;font-size:18px}
-.board{background:var(--w);border:2px solid var(--ink);box-shadow:10px 10px 0 var(--mg);opacity:0;transform:translateX(40px);transition:1s .4s}
-.go .board{opacity:1;transform:none}
-.board h4{background:var(--ink);color:#fff;padding:10px 16px;display:flex;justify-content:space-between;font-weight:400}
-.row{display:grid;grid-template-columns:30px 1fr auto;gap:10px;padding:13px 16px;border-bottom:1px solid #eee;align-items:center;transition:.25s}
-.row:hover{background:var(--pk);transform:translateX(6px)}
-.row small{display:block;color:#7a5a64;font-size:12px;line-height:1.3}
-.row b{font-family:'JetBrains Mono';font-size:20px;color:var(--mg)}
-.row em{font-style:normal;font-family:Anton;color:#999}
-.telewrap{grid-column:1/-1;position:relative;width:100%;height:130px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);background:rgba(255,255,255,.55)}
-.tel{width:100%;height:100%;display:block}
-.tel-read{position:absolute;right:14px;top:10px;display:flex;gap:16px;font:700 11px 'JetBrains Mono',monospace;color:var(--dk);z-index:2;text-align:center}
-.tel-read b{display:block;color:var(--mg);font-size:15px;font-family:Anton,sans-serif;font-weight:400}
-.strip{position:relative;height:26px;margin:14px 0 2px;overflow:hidden}
-.strip .track-ln{position:absolute;left:0;right:0;bottom:5px;height:2px;background:repeating-linear-gradient(90deg,var(--ink) 0 10px,transparent 10px 20px);opacity:.35}
-.lcar{position:absolute;left:-90px;bottom:0;width:76px;opacity:0}
-.hero.go .lcar{animation:launch 1.9s .1s cubic-bezier(.22,.8,.13,1) forwards}
-@keyframes launch{0%{left:-90px;opacity:1}82%{opacity:1}100%{left:104%;opacity:0}}
-.hero{position:relative}.hero-track{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}.hero-track path{fill:none;stroke:var(--mg);stroke-width:3;opacity:.14;stroke-dasharray:1200;stroke-dashoffset:1200;animation:htd 3.2s .5s ease forwards}@keyframes htd{to{stroke-dashoffset:0}}.role{position:relative;display:inline-block;overflow:hidden;border:2px solid var(--ink);padding:9px 20px;margin:16px 0 20px;background:#fff}.role b{position:relative;z-index:1;font-family:Anton;font-weight:400;font-size:clamp(16px,2.1vw,24px);letter-spacing:.06em}.role i{position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(179,18,79,.35),transparent);transform:translateX(-130%);animation:sweep 3s ease-in-out infinite}@keyframes sweep{to{transform:translateX(130%)}}.gloss{grid-column:1/-1;background:#fff;border:2px solid var(--ink);margin-top:6px}.gloss h4{background:var(--ink);color:#fff;padding:10px 16px;font-family:Anton;font-weight:400;letter-spacing:.05em;display:flex;justify-content:space-between}.gitem{display:grid;grid-template-columns:44px 130px 1fr;gap:14px;align-items:center;padding:12px 16px;border-bottom:1px solid #eee;font-size:14px}.gitem:last-child{border-bottom:0}.gitem em{font-style:normal;font-family:Anton;color:var(--mg);font-size:20px}.gitem b{font-family:Anton;font-weight:400;letter-spacing:.03em}
-.guide div{padding:12px 16px;border-left:4px solid var(--mg);background:rgba(255,255,255,.6);font-size:14px;line-height:1.4}
-.guide b{display:block;font-family:Anton;font-weight:400;font-size:18px;letter-spacing:.04em;color:var(--dk)}
-.tick{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap;padding:14px 0;transform:rotate(-1deg);margin:20px -2vw}
-.tick div{display:inline-block;animation:mq 26s linear infinite;font-family:Anton;font-size:26px;letter-spacing:.05em}
-.tick span{color:var(--pk);margin:0 26px}
-@keyframes mq{to{transform:translateX(-50%)}}
-.sh{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:end;margin-bottom:50px}
-.sh>b{font-family:Anton;font-weight:400;font-size:clamp(90px,15vw,220px);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--mg)}
-.sh h2{font-size:clamp(34px,5.5vw,76px);margin:6px 0 14px}
-.radio{background:var(--w);border-left:5px solid var(--mg);padding:10px 16px;max-width:620px;font-size:14px}
-.radio i{font-style:normal;font-family:'JetBrains Mono';font-size:11px;background:var(--mg);color:#fff;padding:2px 8px;margin-right:8px}
-.g2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.card{background:var(--w);border:2px solid var(--ink);padding:28px;position:relative;transition:.3s}
-.card:hover{transform:translate(-4px,-4px);box-shadow:8px 8px 0 var(--mg)}
-.card h3{font-size:34px;margin:8px 0}
-.card .m{color:var(--mg)}
-.ring{display:flex;gap:26px;align-items:center}
-.ring svg{width:150px;flex:none;transform:rotate(-90deg)}
-.ring circle{fill:none;stroke-width:12}
-.ring .t{stroke:var(--pk)}
-.ring .v{stroke:var(--mg);stroke-dasharray:314;stroke-dashoffset:314;transition:2s .3s cubic-bezier(.3,.7,.2,1)}
-.ring.in .v{stroke-dashoffset:calc(314 - 314*.873)}
-.big{font-family:Anton;font-size:64px;line-height:1;color:var(--mg)}
-.stint{display:grid;gap:26px}
-.stint .card{border-left:10px solid var(--mg)}
-.pit{background:var(--ink);color:#fff;padding:26px;display:grid;gap:10px;align-content:start}
-.pit h4{font-family:Anton;font-weight:400;font-size:26px;letter-spacing:.04em;color:var(--pk)}
-.pit p{font-size:13px;color:#cbb;margin-bottom:8px}
-.st{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px dashed #5a3a46;font-family:'JetBrains Mono';font-size:13px}
-.st i{display:inline-block;margin-right:10px;background:#3dffa8;box-shadow:0 0 9px #3dffa8}
-.st i.p{background:#ff2d87;box-shadow:0 0 9px #ff2d87}
-.lb .r{display:grid;grid-template-columns:70px 1.2fr 2fr 160px;gap:20px;align-items:center;padding:24px 20px;border-bottom:2px solid var(--ink);background:var(--w);position:relative;overflow:hidden;transition:.35s}
-.lb .r:before{content:"";position:absolute;inset:0;background:var(--mg);transform:translateX(-101%);transition:.45s cubic-bezier(.2,.8,.2,1);z-index:0}
-.lb .r>*{position:relative;z-index:1;transition:color .3s}
-.lb .r:hover:before{transform:none}
-.lb .r:hover>*{color:#fff}
-.lb .r:hover .drs{opacity:1}
-.lb .n{font-family:Anton;font-size:52px;color:var(--mg)}
-.lb h3{font-size:28px}
-.drs{border:2px solid #fff;padding:4px 10px;text-align:center;opacity:.3;font-family:'JetBrains Mono';font-size:11px;transition:.3s}
-.podium{margin-top:26px;display:flex;gap:22px;align-items:center;background:var(--pk);border:2px solid var(--ink);padding:22px}
-.podium b{font-family:Anton;font-weight:400;font-size:72px;color:var(--dk);line-height:1}
-.pace{display:grid;grid-template-columns:1.1fr 1fr;gap:30px}
-.chart{background:var(--w);border:2px solid var(--ink);padding:20px}
-.chart svg{width:100%;height:auto}
-.chart path.ln{fill:none;stroke:var(--mg);stroke-width:4;stroke-dasharray:1;stroke-dashoffset:1;transition:2.6s ease}
-.chart.in path.ln{stroke-dashoffset:0}
-.chart path.ar{fill:rgba(179,18,79,.12);opacity:0;transition:1s 2s}
-.chart.in path.ar{opacity:1}
-.bar{margin:0 0 16px}
-.bar div{display:flex;justify-content:space-between;font-size:14px;font-weight:500}
-.bar u{display:block;height:12px;background:var(--pk);margin-top:5px}
-.bar u i{display:block;height:100%;width:0;background:repeating-linear-gradient(90deg,var(--mg) 0 10px,var(--dk) 10px 12px);transition:1.6s cubic-bezier(.3,.7,.2,1)}
-.in .bar u i{width:var(--w)}
-.ers{margin-top:26px}
-.ers u{display:block;height:16px;background:#fff;border:2px solid var(--ink);margin-top:6px}
-.ers u i{display:block;height:100%;width:0;background:var(--mg);transition:2s}
-.in .ers u i{width:78%}
-.stop{background:var(--ink);color:#fff;text-align:center;padding:130px 5vw}
-.stop h2{font-size:clamp(50px,11vw,170px);color:var(--pk)}
-.stop h2 em{font-style:normal;color:transparent;-webkit-text-stroke:2px var(--pk)}
-.clock{font-family:'JetBrains Mono';font-size:clamp(50px,9vw,120px);color:#ff2d87;margin:18px 0}
-.stop p{max-width:520px;margin:0 auto 30px;color:#d9bcc6}
-.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btns a{padding:16px 30px;border:2px solid var(--pk);font-family:Anton;letter-spacing:.06em;font-size:18px;transition:.25s}
-.btns a:first-child,.btns a:hover{background:var(--pk);color:var(--ink)}
-.btns a:hover{background:#fff;transform:translateY(-4px)}
-footer{background:#000;color:#a88;padding:22px 5vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.map{position:fixed;right:22px;bottom:22px;z-index:30;width:160px;background:rgba(255,255,255,.92);border:2px solid var(--ink);padding:10px}
-.map svg{width:100%;display:block}
-.map .m{display:flex;justify-content:space-between;font-size:10px;margin-top:4px}
-.map .m b{color:var(--mg)}
-.tp{fill:none;stroke-width:7;stroke-linecap:round;stroke-dasharray:100 200;stroke-dashoffset:300;animation:dr 2.4s .3s forwards}
-@keyframes dr{to{stroke-dashoffset:var(--o)}}
-#cur{position:fixed;left:0;top:0;z-index:99;pointer-events:none;opacity:0;transition:opacity .3s}
-#cur.on{opacity:1}
-#cur svg{width:30px;height:48px;margin:-24px 0 0 -15px;display:block;filter:drop-shadow(0 0 2px #fff) drop-shadow(0 2px 3px rgba(0,0,0,.5));transition:scale .2s}
-#cur.h svg{scale:1.4}
-#cur b{position:absolute;left:20px;top:12px;font:700 10px 'JetBrains Mono',monospace;background:var(--ink);color:#fff;padding:2px 6px;white-space:nowrap}
-#cur.h b{background:#ff2d87}
-#trail{position:fixed;inset:0;z-index:98;pointer-events:none}
-.sl{position:fixed;top:0;left:0;right:0;z-index:60;height:6px;display:flex;gap:3px;padding:0 3px}
-.sl i{flex:1;background:#e3c3ce;transition:.12s}.sl i.on{background:#ff6ba8}.sl i.on.q{background:var(--mg)}.sl i.on.z{background:var(--ink)}
-.rc{position:fixed;right:22px;top:76px;z-index:45;background:var(--ink);color:#fff;padding:12px 18px;max-width:300px;font:12px/1.5 'JetBrains Mono',monospace;border-left:6px solid #ff2d87;transform:translateX(130%);transition:.5s}
-.rc.s{transform:none}.rc b{display:block;color:var(--pk)}
-.flash{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 40%,rgba(255,45,135,.38),transparent 62%);transition:opacity .18s}
-.flash.on{opacity:1}
-.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,160%);background:var(--ink);color:#fff;padding:12px 24px;font-family:Anton;font-weight:400;letter-spacing:.05em;z-index:90;border:2px solid var(--pk);transition:.45s cubic-bezier(.3,.8,.2,1)}
-.toast.show{transform:translate(-50%,0)}
-.circ-in{display:grid;grid-template-columns:1fr 1.4fr;gap:40px;align-items:center}
-.circ h2{font-size:clamp(34px,5vw,64px);margin:6px 0 14px}
-.lg{list-style:none;margin-top:22px;display:grid;gap:10px}.lg li{display:flex;gap:12px;align-items:center;font-size:14px}.lg i{width:30px;height:8px;flex:none}
-#big{width:100%;background:rgba(255,255,255,.65);border:2px solid var(--ink)}
-.bp{stroke-dasharray:100 200;stroke-dashoffset:var(--o);opacity:0}.in .bp{opacity:1;animation:gr 2s both}
-@keyframes gr{from{stroke-dasharray:0 300}}
-.mt{font:700 11px 'JetBrains Mono',monospace;fill:#140a0e;paint-order:stroke;stroke:#f7e6ea;stroke-width:4px}
-.strat{margin-bottom:34px}.sb{display:flex;height:56px;border:2px solid var(--ink);margin:8px 0;background:#fff}
-.sb span{flex:1;background:var(--c,#fff);display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center;font:700 12px 'JetBrains Mono',monospace;border-right:2px solid var(--ink);transform-origin:left;transform:scaleX(0);transition:1s cubic-bezier(.3,.7,.2,1);text-align:center;padding:4px}.sb span small{font:500 9px/1 Inter,sans-serif;letter-spacing:.03em;opacity:.75}
-.in .sb span{transform:none}.sb span:nth-child(2){transition-delay:.4s}.sb span:nth-child(3){transition-delay:.8s}.sb span:nth-child(4){transition-delay:1.2s}
-.sb .pl{background:repeating-linear-gradient(45deg,#fff 0 8px,var(--pk) 8px 16px);border:0}
-.tag{font:700 9px 'JetBrains Mono',monospace;font-style:normal;padding:2px 6px;margin-left:8px;border:1px solid var(--mg);color:var(--mg);vertical-align:middle}
-.tag.g{border-color:#12a86a;color:#12a86a}
-.tyl{color:#7a5a64;margin-top:6px}
-.secs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:12px 16px 4px}.secs span{background:var(--c);color:#fff;font:700 11px 'JetBrains Mono',monospace;text-align:center;padding:5px;animation:bl 3s infinite}
-.wv{display:inline-flex;gap:2px;align-items:center;height:14px;margin-right:10px;vertical-align:middle}.wv u{width:3px;height:100%;background:var(--mg);animation:wv .9s ease-in-out infinite}.wv u:nth-child(2n){animation-delay:.2s}.wv u:nth-child(3n){animation-delay:.45s}@keyframes wv{50%{transform:scaleY(.2)}}
-.chk{height:40px;background:conic-gradient(#140a0e 25%,#fff 0 50%,#140a0e 0 75%,#fff 0) 0 0/40px 40px;animation:ck 3s linear infinite}@keyframes ck{to{background-position:80px 0}}
-.rg{max-width:520px;margin:60px auto 0;border:2px solid #5a3a46;padding:24px}.ll{display:flex;gap:10px;justify-content:center;margin:16px 0}.ll u{width:34px;height:34px;border-radius:50%;background:#2a1a20;transition:.1s}.ll u.on{background:#ff1f4b;box-shadow:0 0 20px #ff1f4b}
-#rb{background:var(--pk);color:var(--ink);border:0;padding:14px 44px;font:22px Anton,Impact,sans-serif;letter-spacing:.06em;transition:.2s}#rb:hover{background:#fff;transform:scale(1.05)}#rr{margin-top:14px;color:#d9bcc6;font-size:14px}
-.map #dl{color:#12a86a}
-.rv{opacity:0;transform:translateY(34px);transition:.9s cubic-bezier(.2,.8,.2,1)}
-.rv.in{opacity:1;transform:none}
-@media(max-height:780px){.map{display:none}}@media(pointer:coarse){#cur,#trail{display:none}}
-@media(max-width:900px){nav div{gap:14px;overflow-x:auto;max-width:72vw}nav a.l{font-size:11px;white-space:nowrap}nav b{font-size:16px}.hero,.g2,.pace{grid-template-columns:1fr}.guide{grid-template-columns:1fr 1fr}.lb .r{grid-template-columns:50px 1fr}.lb .r p,.lb .drs{grid-column:2}.map{display:none}.sh{grid-template-columns:1fr}.circ-in{grid-template-columns:1fr}.rc{top:64px}}
-@media(prefers-reduced-motion:reduce){*,:before,:after{animation:none!important;transition:none!important}.rv,h1 span,.board{opacity:1;transform:none}}
-</style>
+<title>Ananya Bhardwaj — Data Science & ML</title>
+<meta name="description" content="Ananya Bhardwaj, data science and ML engineer. Portfolio told as a race lap.">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="index.html">
 <canvas id="trail"></canvas>
 <div class="kerb l"></div><div class="kerb r"></div>
+
 <div id="cur"><svg viewBox="0 0 40 64">
 <rect x="5" y="2" width="30" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
 <rect x="2" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
@@ -189,17 +22,21 @@ footer{background:#000;color:#a88;padding:22px 5vw;display:flex;justify-content:
 <rect x="0" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
 <rect x="33" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
 <rect x="11" y="56" width="18" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
-</svg><b id="spd">0 KM/H</b></div>
+</svg></div>
+
 <div class="sl" id="sl"></div>
 <div class="rc" id="rc"></div>
 <div class="flash" id="flash"></div>
 <div class="toast" id="toast"></div>
 
 <nav>
-  <b>A.BHARDWAJ</b>
+  <b>ANA</b>
   <div>
-    <a class="l act" href="index.html">HOME</a><a class="l" href="projects.html">PROJECTS</a><a class="l" href="about.html">ABOUT</a><a class="l" href="design.html">MEDIA</a><a class="l" href="work-with-me.html">WORK WITH ME</a><a class="l" href="contact.html">CONTACT</a>
-    <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button><a class="pill m" href="#pit"><i></i>OPEN TO WORK</a>
+    <a class="l act" href="index.html">HOME</a>
+    <a class="l" href="projects.html">PROJECTS</a>
+    <a class="l" href="contact.html">CONTACT</a>
+    <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button>
+    <a class="pill m" href="#pit"><i></i>OPEN TO WORK</a>
   </div>
 </nav>
 
@@ -211,188 +48,217 @@ footer{background:#000;color:#a88;padding:22px 5vw;display:flex;justify-content:
     <path class="tp" style="--o:100;stroke:#ff6ba8" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
     <circle id="dot" r="9" fill="#fff" stroke="#b3124f" stroke-width="4"/>
   </svg>
-  <div class="m"><span id="sec">START</span><b id="lap">0:00.000</b></div><div class="m"><span>DELTA</span><b id="dl">-0.000</b></div><div class="m"><span>GEAR</span><b id="gear">1</b></div>
+  <div class="m"><span id="sec">START</span><b id="lap">0:00.000</b></div>
+  <div class="m"><span>DELTA</span><b id="dl">-0.000</b></div>
+  <div class="m"><span>GEAR</span><b id="gear">1</b></div>
 </aside>
 
 <header class="hero" id="top">
-  <svg class="hero-track" viewBox="0 0 900 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><path pathLength="1200" d="M60 420C10 330 60 180 200 150L480 90C640 55 720 150 630 230C560 292 630 400 780 410C860 415 880 470 800 478L180 478C100 478 100 450 60 420Z"/></svg>
-  <div>
+  <svg class="hero-track" viewBox="0 0 900 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+    <path pathLength="1200" d="M60 420C10 330 60 180 200 150L480 90C640 55 720 150 630 230C560 292 630 400 780 410C860 415 880 470 800 478L180 478C100 478 100 450 60 420Z"/>
+  </svg>
+
+  <div class="hero-copy">
     <div class="lights"><u></u><u></u><u></u><u></u><u></u><span class="m" id="ltxt">LIGHTS ARE COMING ON…</span></div>
     <div class="strip"><span class="track-ln"></span><svg class="lcar" viewBox="0 0 120 40" aria-hidden="true"><rect x="10" y="26" width="14" height="4" fill="#140a0e"/><rect x="96" y="26" width="14" height="4" fill="#140a0e"/><path d="M14 24 L30 14 L70 12 L92 18 L104 24 L104 28 L14 28Z" fill="#b3124f" stroke="#140a0e" stroke-width="1.5"/><circle cx="28" cy="30" r="8" fill="#140a0e"/><circle cx="92" cy="30" r="8" fill="#140a0e"/></svg></div>
     <h1 class="d"><span class="a">Ananya</span><span class="b">Bhardwaj</span></h1>
-    <div class="role"><b>AI ENGINEER · LLMs &amp; RAG SYSTEMS</b><i></i></div>
-    <p class="sub">Computer Science (AIML) graduate working across AI engineering, LLMs & RAG, frontend development, databases, web design and cloud.</p>
+    <div class="role"><b>DATA SCIENCE &amp; ML ENGINEER</b><i></i></div>
+    <p class="sub">Data science and machine-learning engineer. I turn messy data into models and pipelines people can trust, and I treat every project like a lap: plan it, measure it, improve it.</p>
   </div>
-  <div class="board">
-    <h4 class="d m"><span>LIVE TIMING</span><span>LAP 1</span></h4>
-    <div class="row"><em>P1</em><span>CGPA<small>Grade average, B.Tech CSE (AIML)</small></span><b data-n="8.73" data-d="2">0</b></div>
-    <div class="row"><em>P2</em><span>LeetCode<small>Coding problems solved</small></span><b data-n="200" data-x="+">0</b></div>
-    <div class="row"><em>P3</em><span>HackerRank<small>Top star rating</small></span><b data-n="5" data-x="★">0</b></div>
-    <div class="row"><em>P3</em><span>Project Expo 2024<small>Podium finish, top three</small></span><b>3rd</b></div>
-</div>
-  <div class="telewrap"><canvas class="tel" id="tel"></canvas><div class="tel-read"><span>SPD<b id="rspd">0</b></span><span>THR<b id="rthr">0%</b></span><span>BRK<b id="rbrk">0%</b></span></div></div>
-  <div class="gloss">
-    <h4><span>QUICK GLOSSARY</span><span>F1 → PLAIN ENGLISH</span></h4>
-    <div class="gitem"><em>01</em><b>SECTOR</b><span>One third of a lap — one chapter of the story below.</span></div>
-    <div class="gitem"><em>02</em><b>LAP TIME</b><span>The result of a run — a key number or outcome.</span></div>
-    <div class="gitem"><em>03</em><b>PODIUM</b><span>Finishing in the top three — an award I've actually won.</span></div>
-    <div class="gitem"><em>04</em><b>PIT STOP</b><span>A short planned stop — here, how to reach me.</span></div>
+
+  <div class="hero-side">
+    <!-- track-type visual -->
+    <div class="hero-visual" aria-hidden="true">
+      <svg class="hv-svg" viewBox="0 0 340 620" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <path id="hv-trk" pathLength="400" d="M46 -20C170 55 55 190 230 250C370 298 255 400 90 450C-30 490 30 570 190 640"/>
+          <linearGradient id="hv-asphalt" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#221319"/>
+            <stop offset=".5" stop-color="#0c0609"/>
+            <stop offset="1" stop-color="#1a0f14"/>
+          </linearGradient>
+        </defs>
+        <use href="#hv-trk" class="hv-kerbR" fill="none"/>
+        <use href="#hv-trk" class="hv-kerbW" fill="none"/>
+        <use href="#hv-trk" class="hv-road" fill="none"/>
+        <use href="#hv-trk" class="hv-line" fill="none"/>
+        <path class="hv-car" d="M8 0L-6 -5L-3 0L-6 5Z" fill="#ff2d87" stroke="#fff" stroke-width="1.4">
+          <animateMotion dur="4.2s" repeatCount="indefinite" rotate="auto"><mpath href="#hv-trk"/></animateMotion>
+        </path>
+      </svg>
+      <div class="hv-tag">
+        <span class="hv-kicker">ROLE</span>
+        <b>DATA SCIENCE ENGINEER</b>
+        <b>LLMs &amp; RAG SYSTEMS</b>
+      </div>
+    </div>
+
   </div>
+
 </header>
 
-<div class="tick"><div><span>200+ LEETCODE PROBLEMS</span>★<span>HACKERRANK 5★</span>★<span>3RD PLACE PROJECT EXPO 2024</span>★<span>8.73 CGPA</span>★<span>GCP · BIGQUERY · VERTEX AI</span>★<span>200+ LEETCODE PROBLEMS</span>★<span>HACKERRANK 5★</span>★<span>3RD PLACE PROJECT EXPO 2024</span>★<span>8.73 CGPA</span>★<span>GCP · BIGQUERY · VERTEX AI</span>★</div></div>
-
-<section class="circ" id="circ" data-s="THE CIRCUIT"><div class="circ-in rv"><div><small class="m">THE CIRCUIT · MY CAREER AS A MAP</small><h2 class="d">One lap, three sectors</h2><p class="radio"><i>RADIO</i>Every real circuit is timed in three sectors. I split my career the same way.</p><p class="m tyl" style="margin:-4px 0 18px">TAP ANY WHITE CHECKPOINT ON THE MAP TO JUMP STRAIGHT THERE →</p>
-<ul class="lg"><li><i style="background:#140a0e"></i><b>Sector 1</b> Education — B.Tech, 8.73 CGPA</li><li><i style="background:#b3124f"></i><b>Sector 2</b> Experience — Celebal, then Nokia</li><li><i style="background:#ff6ba8"></i><b>Sector 3</b> Projects — four builds, one podium</li><li><i style="background:#ff2d87;height:12px"></i><b>DRS zone</b> Fastest stretch — cloud data work at Nokia</li></ul></div>
-<svg id="big" viewBox="-60 0 520 270"><defs><pattern id="chk" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="8" height="8" fill="#fff"/><rect width="4" height="4" fill="#140a0e"/><rect x="4" y="4" width="4" height="4" fill="#140a0e"/></pattern><path id="bigp" pathLength="300" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z"/></defs>
-<use href="#bigp" fill="none" stroke="#eab9c8" stroke-width="10" stroke-linecap="round"/><circle cx="70" cy="190" r="10" fill="url(#chk)" stroke="#140a0e" stroke-width="1.5"/>
-<use href="#bigp" class="bp" fill="none" stroke-width="10" style="--o:300;stroke:#140a0e"/><use href="#bigp" class="bp" fill="none" stroke-width="10" style="--o:200;stroke:#b3124f"/><use href="#bigp" class="bp" fill="none" stroke-width="10" style="--o:100;stroke:#ff6ba8"/><use href="#bigp" class="bp" fill="none" stroke-width="14" style="--o:-170;stroke:#ff2d87;stroke-dasharray:20 280"/>
-<path d="M6 0L-6 -5L-6 5Z" fill="#fff" stroke="#140a0e" stroke-width="2"><animateMotion dur="10s" repeatCount="indefinite" rotate="auto"><mpath href="#bigp"/></animateMotion></path></svg></div></section>
+<!-- marquee: GCP / BigQuery / Vertex AI removed -->
+<section class="circ" id="circ" data-s="THE CIRCUIT">
+  <div class="circ-in rv">
+    <div>
+      <small class="m">THE CIRCUIT · MY CAREER AS A MAP</small>
+      <h2 class="d">One lap, three sectors</h2>
+      <p class="radio"><i>RADIO</i>Every real circuit is timed in three sectors. I split my career the same way.</p>
+      <p class="m tyl" style="margin:-4px 0 18px">TAP ANY WHITE CHECKPOINT ON THE MAP TO JUMP STRAIGHT THERE →</p>
+      <ul class="lg">
+        <li><i style="background:#140a0e"></i><b>Sector 1</b> Education</li>
+        <li><i style="background:#b3124f"></i><b>Sector 2</b> Experience</li>
+        <li><i style="background:#ff6ba8"></i><b>Sector 3</b> Projects</li>
+      </ul>
+    </div>
+    <svg id="big" viewBox="-60 0 520 270">
+      <defs>
+        <pattern id="chk" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect width="8" height="8" fill="#fff"/><rect width="4" height="4" fill="#140a0e"/>
+          <rect x="4" y="4" width="4" height="4" fill="#140a0e"/>
+        </pattern>
+        <path id="bigp" pathLength="300" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z"/>
+      </defs>
+      <use href="#bigp" fill="none" stroke="#eab9c8" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="70" cy="190" r="10" fill="url(#chk)" stroke="#140a0e" stroke-width="1.5"/>
+      <use href="#bigp" class="bp" fill="none" stroke-width="10" style="--o:300;stroke:#140a0e"/>
+      <use href="#bigp" class="bp" fill="none" stroke-width="10" style="--o:200;stroke:#b3124f"/>
+      <use href="#bigp" class="bp" fill="none" stroke-width="10" style="--o:100;stroke:#ff6ba8"/>
+      <use href="#bigp" class="bp" fill="none" stroke-width="14" style="--o:-170;stroke:#ff2d87;stroke-dasharray:20 280"/>
+      <path d="M6 0L-6 -5L-6 5Z" fill="#fff" stroke="#140a0e" stroke-width="2">
+        <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#bigp"/>
+        </animateMotion>
+      </path>
+    </svg>
+  </div>
+</section>
 
 <section id="s1" data-s="SECTOR 1">
-  <div class="sh rv"><b>S1</b><div><small class="m">SECTOR 1 · EDUCATION</small><h2 class="d">Where the engine was built</h2><p class="radio"><i>RADIO</i>A race engineer talks to the driver by radio. Mine translates: a sector is one third of a lap, so this is chapter one of the career.</p></div></div>
+  <div class="sh rv"><b>S1</b><div>
+    <small class="m">SECTOR 1 · EDUCATION</small>
+    <h2 class="d">Where the engine was built</h2>
+    <p class="radio"><i>RADIO</i>A race engineer talks to the driver by radio. Mine translates: a sector is one third of a lap, so this is chapter one of the career.</p>
+  </div></div>
   <div class="g2">
-    <div class="card rv"><span class="m">B.TECH · COMPUTER SCIENCE, AI &amp; ML</span><h3 class="d">Manipal University Jaipur</h3><p>Four years of core computer science with a specialisation in artificial intelligence and machine learning: algorithms, statistics, and building models end to end.</p></div>
-    <div class="card rv ring"><svg viewBox="0 0 120 120"><circle class="t" cx="60" cy="60" r="50"/><circle class="v" cx="60" cy="60" r="50"/></svg><div><span class="m">SECTOR TIME · CGPA</span><div class="big" data-n="8.73" data-d="2">0</div><p>out of 10. On a timing board this would be a purple sector: the fastest of the lap.</p></div></div>
+    <div class="card rv"><span class="m">B.TECH · COMPUTER SCIENCE, AI &amp; ML</span><h3 class="d">Manipal University Jaipur</h3></div>
+    <div class="card rv ring">
+      <svg viewBox="0 0 120 120"><circle class="t" cx="60" cy="60" r="50"/><circle class="v" cx="60" cy="60" r="50"/></svg>
+      <div><span class="m">SECTOR TIME · CGPA</span><div class="big" data-n="8.73" data-d="2">0</div><p>out of 10. On a timing board this would be a purple sector: the fastest of the lap.</p></div>
+    </div>
   </div>
 </section>
 
 <section id="s2" data-s="SECTOR 2">
-  <div class="sh rv"><b>S2</b><div><small class="m">SECTOR 2 · EXPERIENCE</small><h2 class="d">Running at race speed</h2><p class="radio"><i>RADIO</i>Sector two is the longest stretch. A stint is one run on a set of tyres; here, one job or internship.</p></div></div>
-  <div class="strat rv"><div class="m">RACE STRATEGY · MY CAREER, STINT BY STINT (NOT TO SCALE)</div><div class="sb"><span style="--c:#fff">FOUNDATION<small>Education</small></span><span style="--c:var(--pk)">FIRST STINT<small>Celebal</small></span><span style="--c:var(--mg);color:#fff">CURRENT STINT<small>Nokia</small></span><span class="pl">NEXT STINT<small>Planned</small></span></div><div class="m tyl">A stint is one run before the next planned stop. Each block is one stage of the career: steady groundwork first, then faster, higher-stakes work.</div></div>
-  <div class="g2">
-    <div class="stint">
-      <div class="card rv"><span class="m">STINT 1 · INTERN</span><h3 class="d">Celebal Technologies</h3><p>SQL internship: writing queries, cleaning and structuring data so it is ready for analysis.</p></div>
-      <div class="card rv"><span class="m">STINT 2 · DATA SCIENCE</span><h3 class="d">Nokia</h3><p>Data science work on cloud data platforms, using Google Cloud tools to move, model and serve data at scale.</p></div>
+  <div class="sh rv"><b>S2</b><div>
+    <small class="m">SECTOR 2 · EXPERIENCE</small>
+    <h2 class="d">Running at race speed</h2>
+    <p class="radio"><i>RADIO</i>Sector two is the longest stretch. A stint is one run on a set of tyres; here, one job or internship.</p>
+  </div></div>
+  <div class="strat rv">
+    <div class="m">RACE STRATEGY · MY CAREER, STINT BY STINT (NOT TO SCALE)</div>
+    <div class="sb">
+      <span style="--c:#fff">FOUNDATION<small>Education</small></span>
+      <span style="--c:var(--pk)">FIRST STINT<small>Celebal</small></span>
+      <span style="--c:var(--mg);color:#fff">CURRENT STINT<small>Nokia</small></span>
+      <span class="pl">NEXT STINT<small>Planned</small></span>
     </div>
-    <div class="pit rv"><h4>PIT WALL · TOOLS IN USE</h4><p>The pit wall is where the team watches every system live. These are the systems I work with.</p>
+    <div class="m tyl">A stint is one run before the next planned stop. Each block is one stage of the career: steady groundwork first, then faster, higher-stakes work.</div>
+  </div>
+  <div class="g2">
+    <div class="card rv"><span class="m">STINT · DATA SCIENCE INTERN</span><h3 class="d">Nokia</h3><p>Interned first on cloud data platforms, then converted into a full-time data science role.</p></div>
+    <div class="card rv"><span class="m">STINT · DATA SCIENCE</span><h3 class="d">Nokia — Full-Time</h3><p>Data science work on cloud data platforms, using Google Cloud tools to move, model and serve data at scale.</p></div>
+    <div class="card rv"><span class="m">STINT · OPERATIONS INTERN</span><h3 class="d">Corpift</h3><p>Early operations work: client-facing decks and product demos.</p></div>
+    <div class="card rv"><span class="m">STINT · SQL &amp; DATABASE INTERN</span><h3 class="d">Celebal Technologies</h3><p>SQL internship: writing queries, cleaning and structuring data so it is ready for analysis.</p></div>
+  </div>
+</section>
+
+<section id="s3" data-s="SECTOR 3">
+  <div class="sh rv"><b>S3</b><div>
+    <small class="m">SECTOR 3 · PROJECTS</small>
+    <h2 class="d">The final push</h2>
+    <p class="radio"><i>RADIO</i>The last sector decides the lap time. These are the things I built myself. Hover a row: DRS is the overtaking flap, so it lights up when a project is "open".</p>
+  </div></div>
+  <div class="lb rv">
+    <div class="r"><span class="n">P1</span><h3 class="d">Flight Price Predictor</h3><p>Explored and cleaned the data first (EDA), then trained a model that estimates ticket prices from route, dates and airline — reaching 0.87 accuracy.</p><span class="drs">DRS OPEN · ML · 0.87 ACC</span></div>
+    <div class="r"><span class="n">P2</span><h3 class="d">Animal Allergy Saving System</h3><p>A safety-focused system built to protect animals from allergic reactions. Placed top 3 at its hackathon.</p><span class="drs">DRS OPEN · TOP 3 FINISH</span></div>
+    <div class="r"><span class="n">P3</span><h3 class="d">FactCheck AI</h3><p>AI tool that checks claims against evidence, built to fight misinformation.</p><span class="drs">DRS OPEN · NLP</span></div>
+    <div class="r"><span class="n">P4</span><h3 class="d">The Bench — Legal RAG System</h3><p>A retrieval-augmented generation system that answers legal questions grounded in real documents, not guesses.</p><span class="drs">DRS OPEN · LLM · RAG</span></div>
+  </div>
+</section>
+
+<section id="pace" data-s="RACE PACE">
+  <div class="sh rv"><b>Δ</b><div>
+    <small class="m">RACE PACE · TECHNICAL GROWTH</small>
+    <h2 class="d">Getting faster, lap after lap</h2>
+    <p class="radio"><i>RADIO</i>Race pace means being consistently quick, not one lucky lap. The line below is my skill growth over time; the bars show where I am strongest today.</p>
+  </div></div>
+  <div class="pace">
+    <div class="chart rv">
+      <h4 class="d m"><span>LIVE TIMING</span><span>LAP 1</span></h4>
+      <div class="row"><em>P1</em><span>CGPA<small>Grade average, B.Tech CSE (AI/ML)</small></span><b data-n="8.73" data-d="2">0</b></div>
+      <div class="row"><em>P2</em><span>LeetCode<small>Coding problems solved</small></span><b data-n="200" data-x="+">0</b></div>
+      <div class="row"><em>P3</em><span>HackerRank<small>Top star rating</small></span><b data-n="5" data-x="★">0</b></div>
+      <div class="row"><em>P3</em><span>Project Expo 2024<small>Podium finish, top three</small></span><b>3rd</b></div>
+    </div>
+    <div class="pit rv">
+      <h4>PIT WALL · TOOLS IN USE</h4>
+      <p>The pit wall is where the team watches every system live. These are the systems I work with.</p>
       <div class="st"><span><i></i>Python</span><span>ACTIVE</span></div>
       <div class="st"><span><i></i>SQL</span><span>ACTIVE</span></div>
-      <div class="st"><span><i></i>GCP · Azure · BigQuery</span><span>ACTIVE</span></div>
-      <div class="st"><span><i></i>Vertex AI</span><span>ACTIVE</span></div>
+      <div class="st"><span><i></i>Machine learning</span><span>ACTIVE</span></div>
       <div class="st"><span><i></i>LLMs &amp; RAG systems</span><span>ACTIVE</span></div>
+      <div class="st"><span><i></i>GCP · Azure</span><span>ACTIVE</span></div>
       <div class="st"><span><i class="p"></i>Cloud Composer · Airflow</span><span>SCHEDULING</span></div>
       <div class="st"><span><i class="p"></i>Docker</span><span>PACKAGING</span></div>
-      <div class="st"><span><i class="p"></i>ReactJS · JavaScript</span><span>BUILDING</span></div>
+      <div class="st"><span><i class="p"></i>React · JavaScript</span><span>BUILDING</span></div>
       <div class="st"><span><i class="p"></i>Databases · SQL/NoSQL</span><span>QUERYING</span></div>
     </div>
   </div>
 </section>
 
-<section id="s3" data-s="SECTOR 3">
-  <div class="sh rv"><b>S3</b><div><small class="m">SECTOR 3 · PROJECTS</small><h2 class="d">The final push</h2><p class="radio"><i>RADIO</i>The last sector decides the lap time. These are the things I built myself. Hover a row: DRS is the overtaking flap, so it lights up when a project is "open".</p></div></div>
-  <div class="lb rv">
-    <div class="r"><span class="n">P1</span><h3 class="d">Flight Price Predictor</h3><p>Explored and cleaned the data first (EDA), then trained a model that estimates ticket prices from route, dates and airline — reaching 0.87 accuracy.</p><span class="drs">DRS OPEN · ML · 0.87 ACC</span></div>
-    <div class="r"><span class="n">P2</span><h3 class="d">Animal Allergy Saving System</h3><p>A safety-focused system built to protect animals from allergic reactions. Placed top 3 at its hackathon.</p><span class="drs">DRS OPEN · TOP 3 FINISH</span></div>
-    <div class="r"><span class="n">P3</span><h3 class="d">FactCheck AI</h3><p>AI tool that checks claims against evidence, built to fight misinformation.</p><span class="drs">DRS OPEN · NLP</span></div>
-    <div class="r"><span class="n">P4</span><h3 class="d">Apollo — Legal RAG System</h3><p>A retrieval-augmented generation system that answers legal questions grounded in real documents, not guesses.</p><span class="drs">DRS OPEN · LLM · RAG</span></div>
-  </div>
-  <div class="podium rv"><b>P3</b><div><span class="m">PODIUM · PROJECT EXPO 2024</span><p>Third place at Project Expo 2024. On the podium, top three, out of everyone who entered.</p></div></div>
-</section>
-
-<section id="pace" data-s="RACE PACE">
-  <div class="sh rv"><b>Δ</b><div><small class="m">RACE PACE · TECHNICAL GROWTH</small><h2 class="d">Getting faster, lap after lap</h2><p class="radio"><i>RADIO</i>Race pace means being consistently quick, not one lucky lap. The line below is my skill growth over time; the bars show where I am strongest today.</p></div></div>
-  <div class="pace">
-    <div class="chart rv"><span class="m">TELEMETRY · SKILL LEVEL OVER TIME</span>
-      <svg viewBox="0 0 500 260"><g stroke="#eab9c8"><path d="M0 60H500M0 130H500M0 200H500" fill="none"/></g>
-      <path class="ar" d="M10 230C90 220 140 200 200 170S320 90 380 70 470 40 490 30V250H10Z"/>
-      <path class="ln" pathLength="1" d="M10 230C90 220 140 200 200 170S320 90 380 70 470 40 490 30"/>
-      <text x="14" y="252" font-size="11" font-family="monospace" fill="#7d0d3a">START</text><text x="410" y="252" font-size="11" font-family="monospace" fill="#7d0d3a">NOW</text></svg>
-      <div class="ers"><div class="m">ERS · EXTRA ENERGY SAVED FOR A PUSH: CURIOSITY</div><u><i></i></u></div>
-    </div>
-    <div class="rv">
-      <div class="bar"><div><span>Python <i class="tag c">core</i></span><span class="m">92</span></div><u><i style="--w:92%"></i></u></div>
-      <div class="bar"><div><span>SQL <i class="tag c">core</i></span><span class="m">90</span></div><u><i style="--w:90%"></i></u></div>
-      <div class="bar"><div><span>Machine learning <i class="tag c">core</i></span><span class="m">85</span></div><u><i style="--w:85%"></i></u></div>
-      <div class="bar"><div><span>LLMs &amp; RAG systems <i class="tag g">growing</i></span><span class="m">80</span></div><u><i style="--w:80%"></i></u></div>
-      <div class="bar"><div><span>GCP · Azure · Vertex AI <i class="tag c">core</i></span><span class="m">82</span></div><u><i style="--w:82%"></i></u></div>
-      <div class="bar"><div><span>Airflow · Cloud Composer <i class="tag c">core</i></span><span class="m">78</span></div><u><i style="--w:78%"></i></u></div>
-      <div class="bar"><div><span>ReactJS · JavaScript <i class="tag g">growing</i></span><span class="m">70</span></div><u><i style="--w:70%"></i></u></div>
-      <div class="bar"><div><span>Docker <i class="tag c">core</i></span><span class="m">74</span></div><u><i style="--w:74%"></i></u></div><p class="m tyl">CORE = tools I use daily &nbsp;·&nbsp; GROWING = newer skills I am building fast</p>
-    </div>
-  </div>
-</section>
-
 <section id="next" data-s="NEXT LAP">
-  <div class="sh rv"><b>N</b><div><small class="m">NEXT LAP · GOALS</small><h2 class="d">Where the strategy goes</h2><p class="radio"><i>RADIO</i>Race strategy is the plan for the laps still to come. This is mine.</p></div></div>
+  <div class="sh rv"><b>N</b><div>
+    <small class="m">NEXT LAP · GOALS</small>
+    <h2 class="d">Where the strategy goes</h2>
+    <p class="radio"><i>RADIO</i>Race strategy is the plan for the laps still to come. This is mine.</p>
+  </div></div>
   <div class="g2">
-    <div class="card rv"><span class="m">LAP 2</span><h3 class="d">Ship ML to production</h3><p>Take models from notebooks into monitored, scheduled pipelines that teams rely on daily.</p></div>
-    <div class="card rv"><span class="m">LAP 3</span><h3 class="d">Grow into MLOps</h3><p>Go deeper on Vertex AI, Airflow and Docker so every model is repeatable and easy to hand over.</p></div>
+    <div class="card rv"><span class="m">LAP 2</span><h3 class="d">Explore &amp; EDA</h3><p>Make exploratory data analysis the first, unskippable step of every project, not an afterthought.</p></div>
+    <div class="card rv"><span class="m">LAP 3</span><h3 class="d">Ship ML to production</h3><p>Take models from notebooks into monitored, scheduled pipelines that teams rely on daily.</p></div>
+    <div class="card rv"><span class="m">LAP 4</span><h3 class="d">Deploy &amp; monitor</h3><p>Get models deployed behind real monitoring and alerting, not left running in a notebook.</p></div>
+    <div class="card rv"><span class="m">LAP 5</span><h3 class="d">Grow into MLOps</h3><p>Go deeper on Vertex AI, Airflow and Docker so every model is repeatable and easy to hand over.</p></div>
   </div>
 </section>
 
 <div class="chk"></div>
+
 <section class="stop" id="pit" data-s="PIT STOP">
-  <div class="rv"><small class="m">PIT STOP · CONTACT</small>
-  <h2 class="d">Let's <em>work</em> together</h2>
-  <div class="clock" id="clk">0.00s</div>
-  <p>A real pit stop takes about two seconds: new tyres and back on track. Send a message and let's get your data project moving.</p>
-  <div class="btns"><a href="mailto:ananyabhardwaj.tech@gmail.com">EMAIL ME</a><a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">LINKEDIN</a><a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">GITHUB</a><a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">RESUME</a></div>
-  <div class="rg"><div class="m">PIT CREW REFLEX TEST</div><div class="ll"><u></u><u></u><u></u><u></u><u></u></div><button id="rb">START</button><div id="rr">Press start. When all five lights go out, hit the button. A real F1 driver reacts in about 0.2 seconds.</div></div></div>
+  <div class="rv">
+    <small class="m">PIT STOP · CONTACT</small>
+    <h2 class="d">Let's <em>work</em> together</h2>
+    <div class="clock" id="clk">0.00s</div>
+    <p>A real pit stop takes about two seconds: new tyres and back on track. Send a message and let's get your data project moving.</p>
+    <div class="btns">
+      <a href="mailto:ananyabhardwaj.tech@gmail.com">EMAIL ME</a>
+      <a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">LINKEDIN</a>
+      <a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">GITHUB</a>
+      <a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">RESUME</a>
+    </div>
+    <div class="rg">
+      <div class="m">PIT CREW REFLEX TEST</div>
+      <div class="ll"><u></u><u></u><u></u><u></u><u></u></div>
+      <button id="rb">START</button>
+      <div id="rr">Press start. When all five lights go out, hit the button. A real F1 driver reacts in about 0.2 seconds.</div>
+    </div>
+  </div>
 </section>
-<footer class="m"><span>ANANYA BHARDWAJ · DATA SCIENCE &amp; ML · INDIA</span><span>CHEQUERED FLAG. THANKS FOR RACING THROUGH.</span></footer>
 
-<script>
-const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
-// start lights
-const L=$$('.lights u');let k=0;
-const iv=setInterval(()=>{if(k<5){L[k++].classList.add('on')}else{clearInterval(iv);setTimeout(()=>{L.forEach(x=>x.classList.remove('on'));$('.hero').classList.add('go');$('#ltxt').textContent='LIGHTS OUT. AND AWAY WE GO.'},600)}},420);
-setTimeout(()=>$('.hero').classList.add('go'),4200);
-// counters
-const cnt=e=>{const n=+e.dataset.n,d=+e.dataset.d||0,s=e.dataset.x||'',t=performance.now();(function f(x){const p=Math.min((x-t)/1800,1),v=n*(1-Math.pow(1-p,3));e.textContent=v.toFixed(d)+s;if(p<1)requestAnimationFrame(f)})(t)};
-// reveal
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
-$$('.rv').forEach(e=>io.observe(e));
-const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cnt(e.target);io2.unobserve(e.target)}}));
-$$('[data-n]').forEach(e=>io2.observe(e));
-// lap map + timer
-const trk=$('#trk'),len=trk.getTotalLength(),dot=$('#dot'),sec=$('#sec');
-const t0=performance.now(),rcE=$('#rc'),SL=[...Array(20)].map((_,i)=>{const e=document.createElement('i');e.className=i<8?'':i<14?'q':'z';$('#sl').append(e);return e});let last,rt;
-const MSG={'THE CIRCUIT':['GREEN FLAG','Track is clear. Lap started.'],'SECTOR 1':['PURPLE SECTOR','8.73 CGPA. Fastest split of the lap.'],'SECTOR 2':['DRS ENABLED','Cloud data work at speed.'],'SECTOR 3':['PODIUM','Project Expo 2024, 3rd place.'],'RACE PACE':['FASTEST LAP','Skills trending up.'],'NEXT LAP':['STRATEGY UPDATE','Next stint is being planned.'],'PIT STOP':['BOX BOX','Pit lane is open. Say hello.']};
-function tick(){const t=performance.now()-t0,m=Math.floor(t/60000),s=Math.floor(t/1000)%60,ms=Math.floor(t%1000);$('#lap').textContent=`${m}:${String(s).padStart(2,'0')}.${String(ms).padStart(3,'0')}`;requestAnimationFrame(tick)}tick();
-function upd(){const p=scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight),pt=trk.getPointAtLength(p*len);dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);let c='START';$$('[data-s]').forEach(s=>{if(s.getBoundingClientRect().top<innerHeight*.5)c=s.dataset.s});if(c!==last){last=c;const q=MSG[c];if(q){rcE.innerHTML=`<b>RACE CONTROL · ${q[0]}</b>${q[1]}`;rcE.classList.add('s');clearTimeout(rt);rt=setTimeout(()=>rcE.classList.remove('s'),3800)}}sec.textContent=c;$('#gear').textContent=1+Math.min(7,Math.floor(p*8));SL.forEach((e,i)=>e.classList.toggle('on',i<p*20+1))}
-const bp=$('#bigp'),bl=bp.getTotalLength();
-[[0,'START / FINISH','#top'],[50,'S1 EDUCATION','#s1'],[150,'S2 EXPERIENCE','#s2'],[180,'DRS · NOKIA','#s2'],[250,'S3 PROJECTS','#s3']].forEach(([at,t,h])=>{const p=bp.getPointAtLength(at/300*bl),g=document.createElementNS('http://www.w3.org/2000/svg','a'),L=p.x<200;g.setAttribute('href',h);g.innerHTML=`<circle cx="${p.x}" cy="${p.y}" r="7" fill="#fff" stroke="#b3124f" stroke-width="3"><animate attributeName="r" values="6;9;6" dur="2s" repeatCount="indefinite"/></circle><text class="mt" x="${p.x+(L?-14:14)}" y="${p.y+4}" text-anchor="${L?'end':'start'}">${t}</text>`;$('#big').append(g)});
-addEventListener('scroll',upd,{passive:true});upd();
-// pit stop clock
-new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){o.disconnect();const t=performance.now();(function f(x){const p=Math.min((x-t)/2400,1);$('#clk').textContent=(p*2.4).toFixed(2)+'s';if(p<1)requestAnimationFrame(f)})(t)}}),{threshold:.6}).observe($('#clk'));
-// telemetry canvas
-const cv=$('#tel'),cx=cv.getContext('2d');let T=0;
-function rs(){cv.width=cv.offsetWidth*devicePixelRatio;cv.height=110*devicePixelRatio}rs();addEventListener('resize',rs);
-function draw(){T+=.03;const w=cv.width,h=cv.height;cx.clearRect(0,0,w,h);cx.lineWidth=2.5*devicePixelRatio;
-[['#b3124f',.5,1],['#140a0e',.3,2.2],['#ff6ba8',.2,3.4]].forEach(([c,a,f])=>{cx.beginPath();cx.strokeStyle=c;for(let x=0;x<w;x+=4){const u=x/w*9+T*f,y=h/2+Math.sin(u)*h*a*.5+Math.sin(u*2.7+f)*h*.12;x?cx.lineTo(x,y):cx.moveTo(x,y)}cx.stroke()});
-cx.fillStyle='#7d0d3a';cx.font=`${11*devicePixelRatio}px monospace`;cx.fillText('SPEED · THROTTLE · BRAKE (LIVE)',12*devicePixelRatio,18*devicePixelRatio);requestAnimationFrame(draw)}draw();
-// cursor: F1 car, turns toward movement, leaves a tyre trail, shows speed and DRS
-const cu=$('#cur'),svg=cu.firstElementChild,tr=$('#trail'),tc=tr.getContext('2d'),sp=$('#spd');let mx=0,my=0,x=0,y=0,a=0,ta=0,v=0,P=[],go=0,H=0,S=[],sv=0,ly=0;addEventListener('scroll',()=>{sv=Math.max(sv,Math.min(90,Math.abs(scrollY-ly)));ly=scrollY});addEventListener('mousedown',()=>{for(let i=0;i<18;i++){const r=Math.random()*6.28,q=2+Math.random()*4;S.push({x,y,vx:Math.cos(r)*q,vy:Math.sin(r)*q,l:1})}});
-const rz=()=>{tr.width=innerWidth;tr.height=innerHeight};rz();addEventListener('resize',rz);
-addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;if(!go){go=1;x=mx;y=my;cu.classList.add('on');document.documentElement.classList.add('nc')}});
-document.addEventListener('mouseover',e=>{H=!!e.target.closest('a,.r,.card,.row');cu.classList.toggle('h',H)});
-(function f(){const dx=mx-x,dy=my-y,d=Math.hypot(dx,dy);x+=dx*.3;y+=dy*.3;v+=(d-v)*.15;
-if(d>2)ta=Math.atan2(dy,dx)*180/Math.PI+90;a+=((((ta-a)%360)+540)%360-180)*.2;
-cu.style.transform=`translate(${x}px,${y}px)`;svg.style.transform=`rotate(${a}deg)`;
-sp.textContent=H?'DRS OPEN':Math.round(v*9)+' KM/H';
-if(go)P.push({x,y,l:1});P=P.filter(p=>(p.l-=.035)>0);
-tc.clearRect(0,0,tr.width,tr.height);tc.lineCap='round';
-for(let i=1;i<P.length;i++){tc.strokeStyle=`rgba(179,18,79,${P[i].l*.55})`;tc.lineWidth=7*P[i].l;tc.beginPath();tc.moveTo(P[i-1].x,P[i-1].y);tc.lineTo(P[i].x,P[i].y);tc.stroke()}
-S=S.filter(p=>(p.l-=.03)>0);S.forEach(p=>{p.x+=p.vx;p.y+=p.vy;tc.fillStyle=`rgba(255,45,135,${p.l})`;tc.fillRect(p.x,p.y,3,3)});
-if(sv>6){tc.lineWidth=1.5;tc.strokeStyle=`rgba(179,18,79,${Math.min(sv/150,.4)})`;for(let i=0;i<sv/4;i++){const yy=Math.random()*tr.height,xx=Math.random()*tr.width;tc.beginPath();tc.moveTo(xx,yy);tc.lineTo(xx+sv*3,yy);tc.stroke()}}sv*=.9;
-requestAnimationFrame(f)})();
+<footer class="m">
+  <span>ANANYA BHARDWAJ · DATA SCIENCE &amp; ML · INDIA</span>
+  <span>CHEQUERED FLAG. THANKS FOR RACING THROUGH.</span>
+</footer>
 
-// radio waveforms + heading decode
-$$('.radio i').forEach(i=>i.insertAdjacentHTML('afterend','<span class="wv"><u></u><u></u><u></u><u></u><u></u></span>'));
-const sc=e=>{const t=e.textContent,C='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';let n=0;const q=setInterval(()=>{e.textContent=[...t].map((c,i)=>c==' '||i<n?c:C[Math.random()*36|0]).join('');if((n+=.8)>t.length){e.textContent=t;clearInterval(q)}},35)};
-const so=new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){sc(e.target);o.unobserve(e.target)}}),{threshold:.6});$$('.sh h2,.circ h2').forEach(e=>so.observe(e));
-setInterval(()=>{$('#dl').textContent=(-(Math.random()*.6+.1)).toFixed(3)},500);
-// reaction test
-const RB=$('#rb'),RR=$('#rr'),LU=$$('.ll u');let st=0,tm=[],t1=0;const off=()=>LU.forEach(u=>u.classList.remove('on'));
-RB.onclick=()=>{if(st==0){st=1;off();RB.textContent='WAIT…';RR.textContent='Lights are coming on…';LU.forEach((u,i)=>tm.push(setTimeout(()=>u.classList.add('on'),i*600)));tm.push(setTimeout(()=>{off();t1=performance.now();st=2;RB.textContent='GO!'},3200+Math.random()*2000))}
-else if(st==1){tm.forEach(clearTimeout);tm=[];st=0;off();RB.textContent='START';RR.textContent='Jump start! You pressed before the lights went out. Try again.'}
-else{const ms=Math.round(performance.now()-t1);st=0;tm=[];RB.textContent='TRY AGAIN';RR.textContent=`Reaction: ${ms} ms. `+(ms<250?'Race-ready. F1 level.':ms<400?'Solid. A points finish.':'Warm up the tyres and go again.')}};
-
-function toast(msg,ms){const t=$('#toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._k);t._k=setTimeout(()=>t.classList.remove('show'),ms)}
-$('#drs').onclick=()=>{const fl=$('#flash');fl.classList.add('on');setTimeout(()=>fl.classList.remove('on'),260);
-for(let i=0;i<46;i++){const r=Math.random()*6.28,q=3+Math.random()*7;S.push({x:innerWidth/2,y:innerHeight*.35,vx:Math.cos(r)*q,vy:Math.sin(r)*q,l:1})}
-toast('DRS ACTIVATED · OVERTAKE MODE',1800)};
-</script>
+<script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Bench— Ananya Bhardwaj</title>
+<meta name="description" content="Case file: The Bench.">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── page-scoped: pipeline diagram + demo extras (namespaced so it never touches other pages) ── */
+.pipe-wrap{background:#fff;border:2px solid var(--ink);box-shadow:10px 10px 0 var(--mg);padding:22px 18px 26px;overflow-x:auto}
+.pipe-wrap h4{font-family:Anton,Impact,sans-serif;font-weight:400;letter-spacing:.05em;display:flex;justify-content:space-between;gap:12px;margin-bottom:14px}
+.pipe-svg{display:block;width:100%;min-width:640px;height:auto}
+.pn-box{fill:#fff;stroke:var(--ink);stroke-width:2}
+.pn-lbl{font:700 11px 'JetBrains Mono',monospace;fill:var(--ink)}
+.pn-sub{font:500 9.5px Inter,sans-serif;fill:#7a5a64}
+.pn-tag{font:700 10px Anton,Impact,sans-serif;letter-spacing:.04em;fill:var(--mg)}
+.pn-dot{fill:var(--mg)}
+.pipe-line{fill:none;stroke:var(--pk);stroke-width:4}
+.pipe-flow{fill:none;stroke:var(--mg);stroke-width:4;stroke-dasharray:10 14;stroke-linecap:round;stroke-dashoffset:0;animation:pipeflow 1.6s linear infinite}
+@keyframes pipeflow{to{stroke-dashoffset:-48}}
+.pn-pulse{animation:pnpulse 2.2s ease-in-out infinite}
+.pn-pulse:nth-of-type(2){animation-delay:.3s}
+.pn-pulse:nth-of-type(3){animation-delay:.6s}
+.pn-pulse:nth-of-type(4){animation-delay:.9s}
+.pn-pulse:nth-of-type(5){animation-delay:1.2s}
+@keyframes pnpulse{0%,100%{r:4}50%{r:6.5}}
+.res-card{border:2px solid var(--ink);background:#2a1a20;padding:14px 16px;margin-top:10px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;opacity:0;transform:translateY(10px);animation:resIn .45s forwards}
+@keyframes resIn{to{opacity:1;transform:none}}
+.res-card b{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:16px;letter-spacing:.02em;color:#fff}
+.res-card span{display:block;font-size:11.5px;color:#cbb;margin-top:3px}
+.res-score{font-family:'JetBrains Mono',monospace;font-size:12px;color:#ff6ba8;text-align:right;white-space:nowrap}
+.res-score u{display:block;width:64px;height:6px;background:#5a3a46;margin-top:5px;overflow:hidden}
+.res-score u i{display:block;height:100%;background:#ff2d87;width:0;transition:.7s cubic-bezier(.3,.7,.2,1)}
+.res-count{font:12px 'JetBrains Mono',monospace;color:#cbb;margin-top:14px}
+.demo .btns{margin-top:14px}
+@media(prefers-reduced-motion:reduce){.pipe-flow,.pn-pulse{animation:none!important}}
+</style>
+</head>
+<body>
+<canvas id="trail"></canvas>
+<div class="kerb l"></div><div class="kerb r"></div>
+<div id="cur"><svg viewBox="0 0 40 64">
+<rect x="5" y="2" width="30" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="2" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="32" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<path d="M20 6 L23 18 L22.5 30 L24.5 36 L24.5 50 L15.5 50 L15.5 36 L17.5 30 L17 18 Z" fill="#b3124f" stroke="#fff" stroke-width="1"/>
+<circle cx="20" cy="27" r="3.6" fill="none" stroke="#fff" stroke-width="1.3"/>
+<path d="M15 33 L10.5 41 L14.5 49 L18 47 L18 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<path d="M25 33 L29.5 41 L25.5 49 L22 47 L22 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<rect x="0" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="33" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="11" y="56" width="18" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+</svg><b id="spd">0 KM/H</b></div>
+<div class="sl" id="sl"></div>
+<div class="rc" id="rc"></div>
+<div class="flash" id="flash"></div>
+<div class="toast" id="toast"></div>
+
+<nav>
+  <b>ANA</b>
+  <div>
+    <a class="l" href="index.html">HOME</a><a class="l" href="projects.html">PROJECTS</a><a class="l" href="contact.html">CONTACT</a>
+    <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button><a class="pill m" href="contact.html"><i></i>OPEN TO WORK</a>
+  </div>
+</nav>
+
+<aside class="map" aria-hidden="true">
+  <svg viewBox="0 0 400 270">
+    <path id="trk" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" fill="none" stroke="#eab9c8" stroke-width="7" pathLength="300"/>
+    <path class="tp" style="--o:300;stroke:#140a0e" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:200;stroke:#b3124f" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:100;stroke:#ff6ba8" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <circle id="dot" r="9" fill="#fff" stroke="#b3124f" stroke-width="4"/>
+  </svg>
+  <div class="m"><span id="sec">START</span><b id="lap">0:00.000</b></div><div class="m"><span>DELTA</span><b id="dl">-0.000</b></div><div class="m"><span>GEAR</span><b id="gear">1</b></div>
+</aside>
+
+<header class="hero page" id="top" data-s="CASE FILE">
+  <svg class="hero-track" viewBox="0 0 900 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><path pathLength="1200" d="M60 420C10 330 60 180 200 150L480 90C640 55 720 150 630 230C560 292 630 400 780 410C860 415 880 470 800 478L180 478C100 478 100 450 60 420Z"/></svg>
+  <div>
+    <div class="lights"><u></u><u></u><u></u><u></u><u></u><span class="m" id="ltxt">CASE 02 · LEGAL TECH…</span></div>
+    <div class="strip"><span class="track-ln"></span><svg class="lcar" viewBox="0 0 120 40" aria-hidden="true"><rect x="10" y="26" width="14" height="4" fill="#140a0e"/><rect x="96" y="26" width="14" height="4" fill="#140a0e"/><path d="M14 24 L30 14 L70 12 L92 18 L104 24 L104 28 L14 28Z" fill="#b3124f" stroke="#140a0e" stroke-width="1.5"/><circle cx="28" cy="30" r="8" fill="#140a0e"/><circle cx="92" cy="30" r="8" fill="#140a0e"/></svg></div>
+    <h1 class="d"><span class="a">The Bench</span></h1>
+    <div class="role"><b>P2 · APPLIED AI / LEGAL RESEARCH</b><i></i></div>
+    <p class="sub">Ask a legal question in plain language, get back ranked case law — a hybrid retrieval + LLM-orchestrated pipeline built to stay fast, stateful and correct as real users hammer it with follow-up questions.</p>
+    <div class="btns left" style="margin-top:22px;justify-content:flex-start"><a href="projects.html">BACK TO GARAGE</a><a href="contact.html">DISCUSS A PROJECT</a></div>
+  </div>
+  <div class="board">
+    <h4 class="d m"><span>LIVE TIMING</span><span>P2</span></h4>
+    <div class="row"><em>01</em><span>Orchestration<small>Multi-step reasoning &amp; ranking</small></span><b>LG</b></div>
+    <div class="row"><em>02</em><span>Retrieval<small>Semantic + keyword, combined</small></span><b>HYB</b></div>
+    <div class="row"><em>03</em><span>API<small>Backend service layer</small></span><b>FAST</b></div>
+    <div class="row"><em>04</em><span>Frontend<small>Chat-style research UI</small></span><b>RX</b></div>
+    <div class="row"><em>05</em><span>Pagination<small>Stateful, per-session</small></span><b>PG</b></div>
+    <div class="row"><em>06</em><span>Cache<small>Follow-up detection</small></span><b>RDS</b></div>
+    <div class="row"><em>07</em><span>Storage<small>Case-law corpus</small></span><b>PSQL</b></div>
+    <div class="row"><em>08</em><span>Cleanup<small>Rolling, lock-safe expiry</small></span><b>TTL</b></div>
+  </div>
+</header>
+
+<section data-s="CASE FILE">
+  <div class="sh rv"><b>P2</b><div><small class="m">THE RUN</small><h2 class="d">Search that reasons like a researcher</h2><p class="radio"><i>RADIO</i>The hard part was never just "find similar text" — it was making the pagination, follow-ups, and scale hold together once real users started typing.</p></div></div>
+  <div class="g2">
+    <div class="card rv">
+      <span class="m">SESSION NOTES</span>
+      <h3 class="d">What shipped</h3>
+      <p>A legal research assistant that takes a natural-language question, retrieves the most relevant judgements with a hybrid semantic + keyword search, then runs them through an LLM-orchestrated pipeline that scores and ranks every candidate before handing back a clean result set — one the user can keep paging through without ever re-running the search.</p>
+      <ul class="list">
+        <li>Hybrid retrieval: dense semantic embeddings combined with keyword matching, so exact statute or section references never get lost to pure vector search</li>
+        <li>A LangGraph-orchestrated pipeline scores and ranks every candidate judgement in one pass</li>
+        <li>Stateful pagination — "Find Next 10" pages through the same ranked set instead of re-querying</li>
+        <li>Follow-up awareness: a genuinely new question in the same conversation clears the old ranking and starts fresh, without touching any other open session</li>
+        <li>FastAPI backend behind a React front end</li>
+        <li>Built to scale: old ranking data expires on a rolling window, cleared in small non-locking batches so storage stays flat as usage grows</li>
+      </ul>
+      <div class="chips"><span class="chip">PYTHON</span><span class="chip">FASTAPI</span><span class="chip">REACT</span><span class="chip">LANGGRAPH</span><span class="chip">POSTGRESQL</span><span class="chip">REDIS</span><span class="chip">HYBRID SEARCH</span><span class="chip">RAG</span></div>
+    </div>
+    <div class="demo rv">
+      <h4><span>FRONT-END DEMO</span><span class="m">SAMPLE SEARCH</span></h4>
+      <label>Legal question</label>
+      <textarea id="legalQ">What counts as anticipatory bail?</textarea>
+      <div class="btns left" style="justify-content:flex-start">
+        <button type="button" id="legalRun">RUN SEARCH</button>
+        <button type="button" id="legalNext" class="hide">FIND NEXT 10</button>
+      </div>
+      <div id="legalOut"></div>
+    </div>
+  </div>
+
+  <div class="g3 rv" style="margin-top:26px">
+    <div class="flow-step"><em>01</em><h4 class="d">Ask the question</h4><p>The query is embedded and matched against the corpus with hybrid semantic + keyword retrieval.</p></div>
+    <div class="flow-step"><em>02</em><h4 class="d">Rank with LangGraph</h4><p>An orchestrated pipeline scores every candidate judgement and sorts them by relevance.</p></div>
+    <div class="flow-step"><em>03</em><h4 class="d">Page through results</h4><p>The ranked set is cached per session, so "Next 10" is instant — no re-query, no lost place.</p></div>
+  </div>
+
+  <div class="pipe-wrap rv" style="margin-top:26px">
+    <h4><span>PIT WALL</span><span class="m">REQUEST LIFECYCLE</span></h4>
+    <svg class="pipe-svg" viewBox="0 0 1180 190" xmlns="http://www.w3.org/2000/svg">
+      <path class="pipe-line" d="M110 95 H1070"/>
+      <path class="pipe-flow" d="M110 95 H1070"/>
+      <g>
+        <circle class="pn-dot pn-pulse" cx="110" cy="95" r="5"/>
+        <circle class="pn-dot pn-pulse" cx="345" cy="95" r="5"/>
+        <circle class="pn-dot pn-pulse" cx="580" cy="95" r="5"/>
+        <circle class="pn-dot pn-pulse" cx="815" cy="95" r="5"/>
+        <circle class="pn-dot pn-pulse" cx="1050" cy="95" r="5"/>
+      </g>
+      <g>
+        <rect class="pn-box" x="40" y="20" width="140" height="60" rx="4"/>
+        <text class="pn-tag" x="110" y="42" text-anchor="middle">01</text>
+        <text class="pn-lbl" x="110" y="60" text-anchor="middle">QUESTION</text>
+        <text class="pn-sub" x="110" y="72" text-anchor="middle">User asks, in plain English</text>
+      </g>
+      <g>
+        <rect class="pn-box" x="275" y="20" width="140" height="60" rx="4"/>
+        <text class="pn-tag" x="345" y="42" text-anchor="middle">02</text>
+        <text class="pn-lbl" x="345" y="60" text-anchor="middle">HYBRID SEARCH</text>
+        <text class="pn-sub" x="345" y="72" text-anchor="middle">Semantic + keyword retrieval</text>
+      </g>
+      <g>
+        <rect class="pn-box" x="510" y="20" width="140" height="60" rx="4"/>
+        <text class="pn-tag" x="580" y="42" text-anchor="middle">03</text>
+        <text class="pn-lbl" x="580" y="60" text-anchor="middle">LANGGRAPH</text>
+        <text class="pn-sub" x="580" y="72" text-anchor="middle">Scores &amp; ranks candidates</text>
+      </g>
+      <g>
+        <rect class="pn-box" x="745" y="20" width="140" height="60" rx="4"/>
+        <text class="pn-tag" x="815" y="42" text-anchor="middle">04</text>
+        <text class="pn-lbl" x="815" y="60" text-anchor="middle">RANKED SET</text>
+        <text class="pn-sub" x="815" y="72" text-anchor="middle">Cached per conversation</text>
+      </g>
+      <g>
+        <rect class="pn-box" x="980" y="20" width="140" height="60" rx="4"/>
+        <text class="pn-tag" x="1050" y="42" text-anchor="middle">05</text>
+        <text class="pn-lbl" x="1050" y="60" text-anchor="middle">PAGINATION</text>
+        <text class="pn-sub" x="1050" y="72" text-anchor="middle">"Next 10", no re-query</text>
+      </g>
+      <g>
+        <rect class="pn-box" x="345" y="120" width="480" height="52" rx="4" stroke-dasharray="5 5"/>
+        <text class="pn-tag" x="585" y="142" text-anchor="middle">FOLLOW-UP CHECK</text>
+        <text class="pn-sub" x="585" y="158" text-anchor="middle">New question, same chat → old ranking cleared, fresh one written. Other chats untouched.</text>
+      </g>
+    </svg>
+  </div>
+
+  <div class="gloss rv" style="margin-top:26px">
+    <h4 class="d m"><span>ARCHITECTURE</span><span>NOTES</span></h4>
+    <div class="gitem"><em>01</em><b>Retrieval layer</b><span>Combines semantic embedding similarity with keyword matching so exact statute or section references aren't lost to pure vector search</span></div>
+    <div class="gitem"><em>02</em><b>Orchestration</b><span>LangGraph coordinates the multi-step scoring and ranking pipeline end to end</span></div>
+    <div class="gitem"><em>03</em><b>Pagination state</b><span>Each ranked result set is scoped to a single conversation, so "Find Next 10" always pages the correct list</span></div>
+    <div class="gitem"><em>04</em><b>Follow-up handling</b><span>A new question in the same conversation clears the old ranking and starts fresh, without disturbing any other open conversation</span></div>
+    <div class="gitem"><em>05</em><b>Scale strategy</b><span>Ranking data expires on a rolling window with batched, lock-safe cleanup, keeping storage flat as traffic grows</span></div>
+    <div class="gitem"><em>06</em><b>Interface</b><span>React front end talking to a FastAPI backend</span></div>
+  </div>
+</section>
+
+<div class="chk"></div>
+<section class="stop" data-s="PIT STOP">
+  <div class="rv"><small class="m">NEXT</small>
+  <h2 class="d">Back to the <em>garage</em></h2>
+  <div class="btns"><a href="projects.html">ALL PROJECTS</a><a href="contact.html">CONTACT</a></div></div>
+</section>
+<footer class="m"><span>ANANYA BHARDWAJ · DATA SCIENCE &amp; ML · INDIA</span><span>CHEQUERED FLAG. THANKS FOR RACING THROUGH.</span></footer>
+<script src="main.js"></script>
+<script>
+(function(){
+  const q=document.getElementById('legalQ'),runBtn=document.getElementById('legalRun'),
+        nextBtn=document.getElementById('legalNext'),out=document.getElementById('legalOut');
+  if(!runBtn||!out) return;
+  const NAMES=['Sample Case 01','Sample Case 02','Sample Case 03','Sample Case 04','Sample Case 05',
+    'Sample Case 06','Sample Case 07','Sample Case 08','Sample Case 09','Sample Case 10',
+    'Sample Case 11','Sample Case 12'];
+  const SNIPPETS=[
+    'Illustrative snippet — matched on statute reference and semantic similarity.',
+    'Illustrative snippet — high keyword overlap with the question.',
+    'Illustrative snippet — closely related fact pattern, per the retrieval layer.',
+    'Illustrative snippet — ranked lower: partial semantic match only.'
+  ];
+  let shown=0, total=NAMES.length, scores=[];
+  function scoreFor(i){ if(!scores[i]) scores[i]=(0.94-i*0.045-Math.random()*0.02); return scores[i]; }
+  function renderBatch(n){
+    const frag=document.createElement('div');
+    for(let i=shown;i<Math.min(shown+n,total);i++){
+      const sc=Math.max(0.12,scoreFor(i));
+      const card=document.createElement('div');
+      card.className='res-card';
+      card.style.animationDelay=((i-shown)*0.08)+'s';
+      card.innerHTML=`<div><b>${NAMES[i]}</b><span>${SNIPPETS[i%SNIPPETS.length]}</span></div>
+        <div class="res-score">HYBRID<br><span>${sc.toFixed(2)}</span><u><i style="width:0"></i></u></div>`;
+      frag.appendChild(card);
+    }
+    out.appendChild(frag);
+    shown=Math.min(shown+n,total);
+    requestAnimationFrame(()=>{
+      out.querySelectorAll('.res-score i').forEach((bar,idx)=>{
+        const row=bar.closest('.res-card'); if(row.dataset.set) return; row.dataset.set='1';
+      });
+      out.querySelectorAll('.res-card').forEach((card,i)=>{
+        const bar=card.querySelector('.res-score i');
+        if(bar && bar.style.width==='0px'){
+          const sc=Math.max(0.12,scoreFor(i));
+          setTimeout(()=>{bar.style.width=Math.round(sc*100)+'%';},60);
+        }
+      });
+    });
+    let counter=out.querySelector('.res-count');
+    if(!counter){counter=document.createElement('div');counter.className='res-count';out.appendChild(counter);}
+    counter.textContent=`Showing 1–${shown} of ${total} · illustrative UI only — not connected to the live retrieval pipeline or real case data.`;
+    if(shown>=total){nextBtn.classList.add('hide');}
+    else{nextBtn.classList.remove('hide');}
+  }
+  runBtn.addEventListener('click',()=>{
+    out.innerHTML='';scores=[];shown=0;
+    renderBatch(3);
+  });
+  nextBtn.addEventListener('click',()=>renderBatch(3));
+})();
+</script>
+</body>
+</html>

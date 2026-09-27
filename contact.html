@@ -4,79 +4,132 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact — Ananya Bhardwaj</title>
-<meta name="description" content="Ananya Bhardwaj — Data Science Engineer building ML systems, data pipelines and analytics experiences.">
+<meta name="description" content="Pit wall — how to work with Ananya Bhardwaj, and how to reach her.">
 <link rel="stylesheet" href="style.css">
-
+<style>
+/* ── page-scoped: integrated "pit box" console — quick links + form, F1 pit-wall look ── */
+.board-cta h4{align-items:center}
+.board-cta .live{display:inline-flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;font-weight:700}
+.board-cta .live i{width:7px;height:7px;border-radius:50%;background:#3dffa8;box-shadow:0 0 8px #3dffa8;animation:bl 1.2s infinite;display:inline-block}
+.board-flag{height:9px;background:conic-gradient(var(--ink) 25%,#fff 0 50%,var(--ink) 0 75%,#fff 0) 0 0/16px 16px;animation:ck 3s linear infinite}
+.console-body{padding:20px 22px 24px}
+.console-links{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.clink{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:7px;background:var(--ink);color:#fff;padding:9px 16px;border-radius:999px;font:700 11px 'JetBrains Mono',monospace;letter-spacing:.05em;text-decoration:none;transition:transform .25s,background .25s,box-shadow .25s}
+.clink:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-140%);transition:transform .6s}
+.clink:hover{background:var(--mg);transform:translateY(-3px);box-shadow:0 5px 0 var(--dk)}
+.clink:hover:before{transform:translateX(140%)}
+.clink b{width:6px;height:6px;border-radius:50%;background:#3dffa8;box-shadow:0 0 7px #3dffa8;animation:bl 1.2s infinite;flex:none}
+.console-divider{display:flex;align-items:center;gap:10px;font:12px/1.4 'JetBrains Mono',monospace;color:#7a5a64;margin:4px 0 18px;padding-top:14px;border-top:1px dashed #e3c3ce}
+.console-divider i{font-style:normal;background:var(--mg);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;letter-spacing:.06em}
+.console-form .g2{gap:14px}
+.console-form .btns{margin-top:16px}
+</style>
 </head>
-<body data-page="contact.html">
-<div id="race-cursor"></div>
-<canvas id="telemetry-canvas" aria-hidden="true"></canvas>
-<div class="site-shell">
-<div class="topline"></div>
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="brand" href="index.html"><span class="brand-mark">AB</span><span>ANANYA</span> BHARDWAJ</a>
-    <div class="nav-links">
-      <a href="index.html">HOME</a>
-      <a href="projects.html">PROJECTS</a>
-      <a href="about.html">ABOUT</a>
-      <a href="design.html">MEDIA</a>
-      <a href="work-with-me.html">WORK WITH ME</a>
-      <a href="contact.html">CONTACT</a>
-    </div>
-    <div class="nav-actions">
-      <div class="pill"><i class="light"></i> OPEN TO WORK</div>
-      <button class="mobile-toggle" aria-label="Toggle navigation">MENU</button>
-    </div>
+<body>
+<canvas id="trail"></canvas>
+<div class="kerb l"></div><div class="kerb r"></div>
+<div id="cur"><svg viewBox="0 0 40 64">
+<rect x="5" y="2" width="30" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="2" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="32" y="8" width="6" height="12" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<path d="M20 6 L23 18 L22.5 30 L24.5 36 L24.5 50 L15.5 50 L15.5 36 L17.5 30 L17 18 Z" fill="#b3124f" stroke="#fff" stroke-width="1"/>
+<circle cx="20" cy="27" r="3.6" fill="none" stroke="#fff" stroke-width="1.3"/>
+<path d="M15 33 L10.5 41 L14.5 49 L18 47 L18 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<path d="M25 33 L29.5 41 L25.5 49 L22 47 L22 35 Z" fill="#140a0e" stroke="#fff" stroke-width=".7"/>
+<rect x="0" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="33" y="40" width="7" height="13" rx="2" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+<rect x="11" y="56" width="18" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
+</svg><b id="spd">0 KM/H</b></div>
+<div class="sl" id="sl"></div>
+<div class="rc" id="rc"></div>
+<div class="flash" id="flash"></div>
+<div class="toast" id="toast"></div>
+
+<nav>
+  <b>ANA</b>
+  <div>
+    <a class="l" href="index.html">HOME</a><a class="l" href="projects.html">PROJECTS</a><a class="l" href="design.html">MEDIA</a><a class="l" href="contact.html#work">WORK WITH ME</a><a class="l" href="contact.html">CONTACT</a>
+    <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button><a class="pill m" href="#pit"><i></i>OPEN TO WORK</a>
   </div>
 </nav>
 
-<main>
-<section class="contact-hero">
-  <div class="wrap">
-    <div class="kicker fade-in">15 // RADIO CHECK</div>
-    <h1 class="page-title lg fade-in">LET’S GET<br><span style="color:var(--red)">THE DATA</span><br>MOVING.</h1>
-    <p class="page-lede fade-in">For an AI, RAG, frontend, database, cloud or web project — send the brief. Keep it simple; the first step is understanding the problem.</p>
+<aside class="map" aria-hidden="true">
+  <svg viewBox="0 0 400 270">
+    <path id="trk" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" fill="none" stroke="#eab9c8" stroke-width="7" pathLength="300"/>
+    <path class="tp" style="--o:300;stroke:#140a0e" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:200;stroke:#b3124f" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <path class="tp" style="--o:100;stroke:#ff6ba8" d="M70 190C40 150 60 80 130 70L220 60C280 55 300 100 260 130C230 152 250 190 310 195C360 200 370 240 320 245L120 245C80 245 80 215 70 190Z" pathLength="300"/>
+    <circle id="dot" r="9" fill="#fff" stroke="#b3124f" stroke-width="4"/>
+  </svg>
+  <div class="m"><span id="sec">START</span><b id="lap">0:00.000</b></div><div class="m"><span>DELTA</span><b id="dl">-0.000</b></div><div class="m"><span>GEAR</span><b id="gear">1</b></div>
+</aside>
 
-    <div class="contact-grid" style="margin-top:35px">
-      <form class="contact-form fade-in" data-mail-form>
-        <div class="kicker">CONTACT FORM</div>
-        <div class="form-grid">
+<header class="hero page" id="top" data-s="BRIEF">
+  <svg class="hero-track" viewBox="0 0 900 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><path pathLength="1200" d="M60 420C10 330 60 180 200 150L480 90C640 55 720 150 630 230C560 292 630 400 780 410C860 415 880 470 800 478L180 478C100 478 100 450 60 420Z"/></svg>
+  <div>
+    <div class="lights"><u></u><u></u><u></u><u></u><u></u><span class="m" id="ltxt">PIT WALL ONLINE…</span></div>
+    <div class="strip"><span class="track-ln"></span><svg class="lcar" viewBox="0 0 120 40" aria-hidden="true"><rect x="10" y="26" width="14" height="4" fill="#140a0e"/><rect x="96" y="26" width="14" height="4" fill="#140a0e"/><path d="M14 24 L30 14 L70 12 L92 18 L104 24 L104 28 L14 28Z" fill="#b3124f" stroke="#140a0e" stroke-width="1.5"/><circle cx="28" cy="30" r="8" fill="#140a0e"/><circle cx="92" cy="30" r="8" fill="#140a0e"/></svg></div>
+    <h1 class="d"><span class="a">Need the data</span><span class="b">to move?</span></h1>
+    <div class="role"><b>PIT CREW · HOW I HELP, AND HOW TO REACH ME</b><i></i></div>
+    <p class="sub">For technical teams, student founders and product groups that need a second brain on AI systems, data workflows or the interfaces around them — and the fastest way to start that conversation.</p>
+    <div class="btns left" style="margin-top:22px;justify-content:flex-start"><a href="#pit">SEND THE BRIEF</a><a href="#work">SEE THE STATIONS</a></div>
+  </div>
+  <div class="board board-cta" id="pit">
+    <h4 class="d m"><span>PIT BOX</span><span class="live"><i></i>LIVE · SEND IT IN</span></h4>
+    <div class="board-flag"></div>
+    <div class="console-body">
+      <div class="console-links">
+        <a class="clink" href="mailto:ananyabhardwaj.tech@gmail.com"><b></b>EMAIL</a>
+        <a class="clink" href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer"><b></b>LINKEDIN</a>
+        <a class="clink" href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer"><b></b>GITHUB</a>
+        <a class="clink" href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank"><b></b>RESUME</a>
+      </div>
+      <div class="console-divider"><i>RADIO</i>Or send a brief — submit opens your email client, no backend required.</div>
+      <form class="console-form" data-mail-form>
+        <span class="m">CONTACT FORM</span>
+        <div class="g2">
           <div class="field"><label>Name</label><input required name="name" placeholder="Your name"></div>
           <div class="field"><label>Email</label><input required type="email" name="email" placeholder="you@company.com"></div>
         </div>
-        <div class="field"><label>What are we solving?</label><textarea required name="brief" placeholder="An AI system, RAG workflow, frontend, database, cloud task, role or collaboration..."></textarea></div>
-        <div class="hero-actions"><button class="btn red" type="submit">SEND THE BRIEF →</button></div>
-        <p style="font-family:var(--mono);font-size:8px;color:var(--faint);margin-top:15px">SUBMIT OPENS YOUR EMAIL CLIENT — NO FORM BACKEND REQUIRED.</p>
+        <div class="field"><label>What are we solving?</label><textarea required name="brief" placeholder="A model, dashboard, data pipeline, role, collaboration..."></textarea></div>
+        <div class="btns left" style="justify-content:flex-start"><button type="submit">SEND THE BRIEF</button></div>
       </form>
-
-      <div class="contact-info fade-in">
-        <div class="contact-card"><small>DIRECT</small><h3>Email</h3><p>Best for roles, project briefs and introductions.</p><a href="mailto:ananyabhardwaj.tech@gmail.com">ananyabhardwaj.tech@gmail.com ↗</a></div>
-        <div class="contact-card"><small>PROFESSIONAL</small><h3>LinkedIn</h3><p>Profile, current experience and career updates.</p><a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">OPEN LINKEDIN ↗</a></div>
-        <div class="contact-card"><small>CODE</small><h3>GitHub</h3><p>Projects, experiments and technical work.</p><a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">OPEN GITHUB ↗</a></div>
-        <div class="contact-card"><small>DOCUMENTS</small><h3>Resume</h3><p>Current resume in PDF format.</p><a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">OPEN RESUME ↗</a></div>
-      </div>
     </div>
+  </div>
+</header>
+
+<section id="work" data-s="BRIEF">
+  <div class="sh rv"><b>PW</b><div><small class="m">PIT WALL · JOBS I TAKE</small><h2 class="d">Pick a station</h2><p class="radio"><i>RADIO</i>A pit crew is a small team, each with one job. This is the menu.</p></div></div>
+  <div class="g2">
+    <div class="card rv"><span class="m">01 · AI ENGINEERING</span><h3 class="d">AI engineering</h3><p>Applied AI systems end to end — from data and features to a deployed, monitored model.</p></div>
+    <div class="card rv"><span class="m">02 · LLMs &amp; RAG</span><h3 class="d">LLMs &amp; RAG</h3><p>Retrieval-augmented generation, evidence-grounded answers and practical LLM application layers.</p></div>
+    <div class="card rv"><span class="m">03 · UI</span><h3 class="d">UI development</h3><p>Interactive fronts for models and data products — dashboards, demos and internal tools.</p></div>
+    <div class="card rv"><span class="m">04 · FRONTEND</span><h3 class="d">Frontend</h3><p>Clean, fast interfaces with JavaScript and React, designed to sit on top of real data.</p></div>
+    <div class="card rv"><span class="m">05 · DATABASE</span><h3 class="d">Database engineering</h3><p>Schema design, SQL and pipelines that keep information clean and queryable.</p></div>
+    <div class="card rv"><span class="m">06 · WEB</span><h3 class="d">Web designing</h3><p>Visual design and layout for portfolio, product and landing pages — structure first, polish second.</p></div>
+    <div class="card rv"><span class="m">07 · CLOUD</span><h3 class="d">GCP &amp; Azure</h3><p>Cloud workflows, scheduled training and deployment using BigQuery, Cloud Composer, Airflow and Azure.</p></div>
+    <div class="card rv"><span class="m">08 · COMMS</span><h3 class="d">Technical storytelling</h3><p>Structure decks, explain technical work and create communication around data products.</p></div>
   </div>
 </section>
-</main>
 
-<footer class="footer">
-  <div class="wrap footer-grid">
-    <div>
-      <div class="name">ANANYA BHARDWAJ</div>
-      <small>AI ENGINEER · INDIA · BUILDING FROM THE PIT WALL</small>
-    </div>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer">LINKEDIN ↗</a>
-      <a href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer">GITHUB ↗</a>
-      <a href="mailto:ananyabhardwaj.tech@gmail.com">EMAIL ↗</a>
-      <a href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank">RESUME ↗</a>
-    </div>
+<section data-s="NEXT LAP">
+  <div class="sh rv"><b>03</b><div><small class="m">HOW IT RUNS</small><h2 class="d">Three stops</h2><p class="radio"><i>RADIO</i>Scope, build, ship. Small reviewable slices, then a clean handoff.</p></div></div>
+  <div class="g3">
+    <div class="card rv"><span class="m">01</span><h3 class="d">Scope</h3><p>What is the problem, who uses the output, and what does “done” actually mean?</p></div>
+    <div class="card rv"><span class="m">02</span><h3 class="d">Build</h3><p>Data, model, workflow and interface — developed in small, reviewable slices.</p></div>
+    <div class="card rv"><span class="m">03</span><h3 class="d">Ship</h3><p>Document it, test it, hand it over cleanly and leave the next step obvious.</p></div>
   </div>
-</footer>
-</div>
-<div class="toast" aria-live="polite"></div>
+</section>
+
+<div class="chk"></div>
+<section class="stop" data-s="PIT STOP">
+  <div class="rv"><small class="m">PIT CREW REFLEX TEST</small>
+  <h2 class="d">Lights <em>out</em></h2>
+  <div class="clock" id="clk">0.00s</div>
+  <p>Press start. When all five lights go out, hit the button. A real F1 driver reacts in about 0.2 seconds.</p>
+  <div class="rg"><div class="m">PIT CREW REFLEX TEST</div><div class="ll"><u></u><u></u><u></u><u></u><u></u></div><button id="rb">START</button><div id="rr">A real pit stop takes about two seconds. This one tests yours.</div></div></div>
+</section>
+<footer class="m"><span>ANANYA BHARDWAJ · DATA SCIENCE &amp; ML · INDIA</span><span>CHEQUERED FLAG. THANKS FOR RACING THROUGH.</span></footer>
 <script src="main.js"></script>
 </body>
 </html>
