@@ -10,6 +10,7 @@
 <body data-page="index.html">
 <canvas id="trail"></canvas>
 <div class="kerb l"></div><div class="kerb r"></div>
+<div class="spotlight"></div><div class="speedlines"></div>
 
 <div id="cur"><svg viewBox="0 0 40 64">
 <rect x="5" y="2" width="30" height="4" rx="1" fill="#140a0e" stroke="#fff" stroke-width=".8"/>
@@ -30,10 +31,13 @@
 <div class="toast" id="toast"></div>
 
 <nav>
-  <b>ANA</b>
+  <b>A.BHARDWAJ</b>
   <div>
     <a class="l act" href="index.html">HOME</a>
     <a class="l" href="projects.html">PROJECTS</a>
+    <a class="l" href="about.html">ABOUT</a>
+    <a class="l" href="design.html">MEDIA</a>
+    <a class="l" href="work-with-me.html">WORK WITH ME</a>
     <a class="l" href="contact.html">CONTACT</a>
     <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button>
     <a class="pill m" href="#pit"><i></i>OPEN TO WORK</a>
@@ -67,29 +71,54 @@
   </div>
 
   <div class="hero-side">
-    <!-- track-type visual -->
+    <!-- live telemetry HUD visual -->
     <div class="hero-visual" aria-hidden="true">
-      <svg class="hv-svg" viewBox="0 0 340 620" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <path id="hv-trk" pathLength="400" d="M46 -20C170 55 55 190 230 250C370 298 255 400 90 450C-30 490 30 570 190 640"/>
-          <linearGradient id="hv-asphalt" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#221319"/>
-            <stop offset=".5" stop-color="#0c0609"/>
-            <stop offset="1" stop-color="#1a0f14"/>
-          </linearGradient>
-        </defs>
-        <use href="#hv-trk" class="hv-kerbR" fill="none"/>
-        <use href="#hv-trk" class="hv-kerbW" fill="none"/>
-        <use href="#hv-trk" class="hv-road" fill="none"/>
-        <use href="#hv-trk" class="hv-line" fill="none"/>
-        <path class="hv-car" d="M8 0L-6 -5L-3 0L-6 5Z" fill="#ff2d87" stroke="#fff" stroke-width="1.4">
-          <animateMotion dur="4.2s" repeatCount="indefinite" rotate="auto"><mpath href="#hv-trk"/></animateMotion>
-        </path>
-      </svg>
-      <div class="hv-tag">
-        <span class="hv-kicker">ROLE</span>
-        <b>DATA SCIENCE ENGINEER</b>
-        <b>LLMs &amp; RAG SYSTEMS</b>
+      <div class="hv-radar"></div>
+      <div class="hv-grain"></div>
+      <div class="hv-top">
+        <span class="hv-kicker"><i></i>LIVE TELEMETRY</span>
+        <div class="hv-type">
+          <b class="t1">DATA SCIENCE ENGINEER</b>
+          <b class="t2">LLMs &amp; RAG SYSTEMS</b>
+        </div>
+      </div>
+      <div class="hv-gauge">
+        <svg viewBox="0 0 260 150">
+          <defs>
+            <linearGradient id="hv-needlegrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#ff6ba8"/><stop offset="1" stop-color="#ff2d87"/>
+            </linearGradient>
+          </defs>
+          <path id="hv-arc" pathLength="100" d="M30 130 A100 100 0 0 1 230 130" fill="none"/>
+          <use href="#hv-arc" class="hv-arcbg" stroke-linecap="round"/>
+          <use href="#hv-arc" class="hv-arcfill" stroke-linecap="round"/>
+          <g class="hv-ticks">
+            <line x1="22" y1="130" x2="34" y2="130"/>
+            <line x1="42.6" y1="66.5" x2="52.3" y2="73.6"/>
+            <line x1="96.6" y1="27.3" x2="100.3" y2="38.7"/>
+            <line x1="130" y1="22" x2="130" y2="34"/>
+            <line x1="163.4" y1="27.3" x2="159.7" y2="38.7"/>
+            <line x1="217.4" y1="66.5" x2="207.7" y2="73.6"/>
+            <line x1="238" y1="130" x2="226" y2="130"/>
+          </g>
+          <line class="hv-needle" x1="130" y1="130" x2="208" y2="130">
+            <animateTransform attributeName="transform" type="rotate" from="-180 130 130" to="-22.86 130 130" dur="2.4s" begin="0.4s" fill="freeze"/>
+          </line>
+          <circle class="hv-hub" cx="130" cy="130" r="9"/>
+        </svg>
+        <div class="hv-read"><b>8.73</b><span>CGPA · OUT OF 10</span></div>
+      </div>
+      <div class="hv-stats">
+        <div><b>200+</b><span>LEETCODE</span></div>
+        <div><b>5★</b><span>HACKERRANK</span></div>
+        <div><b>3RD</b><span>EXPO '24</span></div>
+      </div>
+      <div class="hv-spacer"></div>
+      <div class="hv-wave">
+        <svg viewBox="0 0 300 50" preserveAspectRatio="none">
+          <polyline id="hv-wl" points="0,25 30,25 40,6 50,44 60,25 110,25 122,12 134,38 146,25 200,25 212,8 224,42 236,25 300,25"/>
+          <circle r="4" fill="#ff2d87"><animateMotion dur="3s" repeatCount="indefinite"><mpath href="#hv-wl"/></animateMotion></circle>
+        </svg>
       </div>
     </div>
 
@@ -183,7 +212,7 @@
     <div class="r"><span class="n">P1</span><h3 class="d">Flight Price Predictor</h3><p>Explored and cleaned the data first (EDA), then trained a model that estimates ticket prices from route, dates and airline — reaching 0.87 accuracy.</p><span class="drs">DRS OPEN · ML · 0.87 ACC</span></div>
     <div class="r"><span class="n">P2</span><h3 class="d">Animal Allergy Saving System</h3><p>A safety-focused system built to protect animals from allergic reactions. Placed top 3 at its hackathon.</p><span class="drs">DRS OPEN · TOP 3 FINISH</span></div>
     <div class="r"><span class="n">P3</span><h3 class="d">FactCheck AI</h3><p>AI tool that checks claims against evidence, built to fight misinformation.</p><span class="drs">DRS OPEN · NLP</span></div>
-    <div class="r"><span class="n">P4</span><h3 class="d">The Bench — Legal RAG System</h3><p>A retrieval-augmented generation system that answers legal questions grounded in real documents, not guesses.</p><span class="drs">DRS OPEN · LLM · RAG</span></div>
+    <div class="r"><span class="n">P4</span><h3 class="d">Apollo — Legal RAG System</h3><p>A retrieval-augmented generation system that answers legal questions grounded in real documents, not guesses.</p><span class="drs">DRS OPEN · LLM · RAG</span></div>
   </div>
 </section>
 
