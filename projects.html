@@ -6,8 +6,9 @@
 <title>Projects — Ananya Bhardwaj</title>
 <meta name="description" content="Ananya Bhardwaj — ML, vision and retrieval projects.">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="f1-upgrade.css">
 </head>
-<body>
+<body data-page="projects.html">
 <canvas id="trail"></canvas>
 <div class="kerb l"></div><div class="kerb r"></div>
 <div id="cur"><svg viewBox="0 0 40 64">
@@ -28,10 +29,13 @@
 <div class="toast" id="toast"></div>
 
 <nav>
-  <b>ANA</b>
+  <b>A.BHARDWAJ</b>
   <div>
-    <a class="l" href="index.html">HOME</a><a class="l" href="projects.html">PROJECTS</a><a class="l" href="contact.html">CONTACT</a>
-    <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button><a class="pill m" href="contact.html"><i></i>OPEN TO WORK</a>
+    <a class="l" href="index.html">HOME</a>
+    <span class="dd"><a class="l" href="projects.html">PROJECTS <i>▾</i></a><span class="dd-menu"><small>THE GARAGE · 5 CASE FILES</small><a class="di" style="--i:0" href="project-f1-race-lab.html"><em>P1</em><b>F1 Race Intelligence Lab</b><u>ML</u></a><a class="di" style="--i:1" href="project-flight-predictor.html"><em>P2</em><b>Flight Price Predictor</b><u>ML</u></a><a class="di" style="--i:2" href="project-animal-allergy.html"><em>P3</em><b>Animal Allergy Saving System</b><u>CV</u></a><a class="di" style="--i:3" href="project-factcheck-ai.html"><em>P4</em><b>FactCheck AI</b><u>NLP</u></a><a class="di" style="--i:4" href="project-the-bench.html"><em>P5</em><b>The Bench · Legal RAG</b><u>RAG</u></a><a class="di all" style="--i:5" href="projects.html">ALL PROJECTS →</a></span></span>
+    <span class="dd r"><a class="l" href="contact.html">CONTACT <i>▾</i></a><span class="dd-menu"><small>PIT RADIO · OPEN CHANNELS</small><a class="di" style="--i:0" href="mailto:ananyabhardwaj.tech@gmail.com"><em>✉</em><b>EMAIL</b><u>ananyabhardwaj.tech@gmail.com</u></a><a class="di" style="--i:1" href="https://www.linkedin.com/in/ananyabhardwaj24/" target="_blank" rel="noreferrer"><em>in</em><b>LINKEDIN</b><u>Connect on LinkedIn</u></a><a class="di" style="--i:2" href="https://github.com/ananya24bhardwaj25" target="_blank" rel="noreferrer"><em></></em><b>GITHUB</b><u>See the code</u></a><a class="di" style="--i:3" href="assets/Ananya-Bhardwaj-Resume.pdf" target="_blank"><em>↓</em><b>RESUME</b><u>Open the PDF</u></a><a class="di all" style="--i:4" href="contact.html">CONTACT PAGE →</a></span></span>
+    <button id="drs" class="pill m" style="background:var(--mg);border:0">⚡ DRS BOOST</button>
+    <a class="pill m" href="contact.html#pit"><i></i>OPEN TO WORK</a>
   </div>
 </nav>
 
@@ -57,20 +61,22 @@
   </div>
   <div class="board">
     <h4 class="d m"><span>LIVE TIMING</span><span>GRID</span></h4>
-    <div class="row"><em>P1</em><span>Flight Price Predictor<small>Random Forest · R² 0.87</small></span><b>ML</b></div>
-    <div class="row"><em>P2</em><span>Animal Allergy Saving<small>TinyVGG · top 3</small></span><b>CV</b></div>
-    <div class="row"><em>P3</em><span>FactCheck AI<small>FAISS · Mistral</small></span><b>NLP</b></div>
-    <div class="row"><em>P4</em><span>The Bench<small>LangGraph · Hybrid search</small></span><b>RAG</b></div>
+    <div class="row"><em>P1</em><span>F1 Race Intelligence Lab<small>Quantile GBM · Monte Carlo</small></span><b>F1</b></div>
+    <div class="row"><em>P2</em><span>Flight Price Predictor<small>Random Forest · R² 0.87</small></span><b>ML</b></div>
+    <div class="row"><em>P3</em><span>Animal Allergy Saving<small>TinyVGG · top 3</small></span><b>CV</b></div>
+    <div class="row"><em>P4</em><span>FactCheck AI<small>FAISS · Mistral</small></span><b>NLP</b></div>
+    <div class="row"><em>P5</em><span>The Bench<small>LangGraph · Hybrid search</small></span><b>RAG</b></div>
   </div>
 </header>
 
 <section data-s="SECTOR 3">
   <div class="sh rv"><b>S3</b><div><small class="m">SECTOR 3 · PROJECTS</small><h2 class="d">The last sector</h2><p class="radio"><i>RADIO</i>The last sector decides the lap time. Hover a row: DRS lights up when a project is open.</p></div></div>
   <div class="lb rv">
-    <a class="r project-item" data-category="ml" href="project-flight-predictor.html"><span class="n">P1</span><h3 class="d">Flight Price Predictor</h3><p>EDA first, then a model that estimates ticket prices from route, dates and airline — 0.87 accuracy.</p><span class="drs">DRS OPEN · ML · 0.87 ACC</span><span class="tag-open">OPEN CASE FILE<i>↗</i></span></a>
-    <a class="r project-item" data-category="vision" href="project-animal-allergy.html"><span class="n">P2</span><h3 class="d">Animal Allergy Saving System</h3><p>Safety-focused classifier to protect animals from allergic reactions. Top 3 at its hackathon.</p><span class="drs">DRS OPEN · TOP 3 FINISH</span><span class="tag-open">OPEN CASE FILE<i>↗</i></span></a>
-    <a class="r project-item" data-category="llm" href="project-factcheck-ai.html"><span class="n">P3</span><h3 class="d">FactCheck AI</h3><p>Checks claims against evidence. Built to fight misinformation.</p><span class="drs">DRS OPEN · NLP</span><span class="tag-open">OPEN CASE FILE<i>↗</i></span></a>
-    <a class="r project-item" data-category="llm" href="project-the-bench.html"><span class="n">P4</span><h3 class="d">The Bench</h3><p>Hybrid retrieval + a LangGraph-orchestrated pipeline that ranks case law and pages through results, statefully.</p><span class="drs">DRS OPEN · RAG · HYBRID SEARCH</span><span class="tag-open">OPEN CASE FILE<i>↗</i></span></a>
+    <a class="r project-item" data-category="ml" href="project-f1-race-lab.html"><span class="n">P1</span><h3 class="d">F1 Race Intelligence Lab</h3><p>Race-strategy analytics on real FastF1 telemetry: tyre degradation with P10/P50/P90 bands, Safety Car cost and a Monte Carlo pit simulator.</p><span class="drs">OPEN CASE FILE ↗</span></a>
+    <a class="r project-item" data-category="ml" href="project-flight-predictor.html"><span class="n">P2</span><h3 class="d">Flight Price Predictor</h3><p>EDA first, then a model that estimates ticket prices from route, dates and airline — 0.87 accuracy.</p><span class="drs">OPEN CASE FILE ↗</span></a>
+    <a class="r project-item" data-category="vision" href="project-animal-allergy.html"><span class="n">P3</span><h3 class="d">Animal Allergy Saving System</h3><p>Safety-focused classifier to protect animals from allergic reactions. Top 3 at its hackathon.</p><span class="drs">OPEN CASE FILE ↗</span></a>
+    <a class="r project-item" data-category="llm" href="project-factcheck-ai.html"><span class="n">P4</span><h3 class="d">FactCheck AI</h3><p>Checks claims against evidence. Built to fight misinformation.</p><span class="drs">OPEN CASE FILE ↗</span></a>
+    <a class="r project-item" data-category="llm" href="project-the-bench.html"><span class="n">P5</span><h3 class="d">The Bench</h3><p>Hybrid retrieval + a LangGraph-orchestrated pipeline that ranks case law and pages through results, statefully.</p><span class="drs">OPEN CASE FILE ↗</span></a>
   </div></section>
 
 <div class="chk"></div>
@@ -82,5 +88,6 @@
 </section>
 <footer class="m"><span>ANANYA BHARDWAJ · DATA SCIENCE &amp; ML · INDIA</span><span>CHEQUERED FLAG. THANKS FOR RACING THROUGH.</span></footer>
 <script src="main.js"></script>
+<script src="f1-upgrade.js"></script>
 </body>
 </html>

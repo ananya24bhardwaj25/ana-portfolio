@@ -1,0 +1,23 @@
+#wowfx{position:fixed;inset:0;z-index:98;pointer-events:none}
+.kx{display:inline-block;will-change:transform}
+.glr{position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;z-index:3}
+.dock{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:45;display:flex;gap:14px;align-items:center;padding:8px 14px;background:rgba(20,10,14,.9);color:#fff;border:1px solid rgba(255,255,255,.2);font:700 11px 'JetBrains Mono',monospace;backdrop-filter:blur(8px)}
+.dock .led{display:flex;gap:4px}.dock .led i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.14)}
+.dock .led i.on{background:#27d17f;box-shadow:0 0 8px #27d17f}.dock .led i.on.r{background:#ff2d5f;box-shadow:0 0 8px #ff2d5f}.dock .led i.on.b{background:#4aa8ff;box-shadow:0 0 8px #4aa8ff}
+.dock .bars{display:flex;gap:5px;height:26px;align-items:flex-end}.dock .bars b{width:8px;height:3px}.dock .th{background:#27d17f}.dock .br{background:#ff2d5f}
+.dock button{background:none;border:1px solid rgba(255,255,255,.35);color:#fff;padding:5px 9px;font:inherit;cursor:pointer;transition:.2s}.dock button:hover{border-color:#ff6ba8}.dock button.on{background:#b3124f;border-color:#b3124f}
+.tower{position:fixed;left:6px;top:50%;margin-top:-110px;z-index:35;width:180px;clip-path:inset(0 142px 0 0);transition:clip-path .35s;background:rgba(20,10,14,.92);color:#fff;font:700 10px 'JetBrains Mono',monospace;border-left:4px solid #b3124f}
+.tower h5{padding:6px 8px;background:#b3124f;font-size:10px;letter-spacing:.12em}.tower ol{list-style:none;position:relative}
+.tower li{position:absolute;top:0;left:0;right:0;height:26px;display:flex;align-items:center;gap:6px;padding:0 8px;transition:transform .55s cubic-bezier(.3,1.35,.5,1),background .3s;cursor:pointer}
+.tower li em{font-style:normal;width:20px;color:#ff6ba8}.tower li span{flex:1;white-space:nowrap}.tower li b{color:#a99;font-weight:400}.tower li.p1{background:#9b30ff}.tower li.p1 b,.tower li.p1 em{color:#fff}
+.tower:hover{clip-path:inset(0)}@media(max-width:1100px){.tower{display:none}}@media(max-width:900px){.dock{display:none}}
+@keyframes shk{0%,100%{transform:none}20%{transform:translate(-8px,4px)}40%{transform:translate(7px,-5px)}60%{transform:translate(-5px,-3px)}80%{transform:translate(3px,4px)}}
+body.shk .hero{animation:shk .6s}
+html.night{--bg:#0a0508;--pk:#2b1019;--ink:#f7e6ea;--w:#150a10;--dk:#ff6ba8;color-scheme:dark}
+html.night body:before{background-image:repeating-linear-gradient(45deg,rgba(255,45,135,.08) 0 2px,transparent 2px 12px),repeating-linear-gradient(-45deg,rgba(255,45,135,.05) 0 2px,transparent 2px 12px),radial-gradient(1100px 650px at 50% -8%,rgba(255,45,135,.26),transparent 65%)}
+html.night nav{background:rgba(10,5,8,.88)}html.night .map{background:rgba(21,10,16,.94)}
+html.night .tick{background:#2b1019}html.night h1 .a{text-shadow:0 0 46px rgba(255,45,135,.6)}
+html.night .card:hover{box-shadow:8px 8px 0 var(--mg),0 0 40px rgba(255,45,135,.35)}
+/* F1 circuit background */
+body:before,body:after{display:none!important}
+#f1bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}

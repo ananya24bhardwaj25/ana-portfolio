@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>FactCheck AI — Ananya Bhardwaj</title>
-<meta name="description" content="Case file: FactCheck AI.">
+<title>F1 Race Intelligence Lab — Ananya Bhardwaj</title>
+<meta name="description" content="Case file: F1 Race Intelligence Lab.">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="f1-upgrade.css">
 </head>
-<body data-page="project-factcheck-ai.html">
+<body data-page="project-f1-race-lab.html">
 <canvas id="trail"></canvas>
 <div class="kerb l"></div><div class="kerb r"></div>
 <div id="cur"><svg viewBox="0 0 40 64">
@@ -53,73 +53,69 @@
 <header class="hero page" id="top" data-s="CASE FILE">
   <svg class="hero-track" viewBox="0 0 900 520" preserveAspectRatio="xMaxYMid slice" aria-hidden="true"><path pathLength="1200" d="M60 420C10 330 60 180 200 150L480 90C640 55 720 150 630 230C560 292 630 400 780 410C860 415 880 470 800 478L180 478C100 478 100 450 60 420Z"/></svg>
   <div>
-    <div class="lights"><u></u><u></u><u></u><u></u><u></u><span class="m" id="ltxt">CASE 04 · LLM…</span></div>
+    <div class="lights"><u></u><u></u><u></u><u></u><u></u><span class="m" id="ltxt">CASE 01 · RACE STRATEGY…</span></div>
     <div class="strip"><span class="track-ln"></span><svg class="lcar" viewBox="0 0 120 40" aria-hidden="true"><rect x="10" y="26" width="14" height="4" fill="#140a0e"/><rect x="96" y="26" width="14" height="4" fill="#140a0e"/><path d="M14 24 L30 14 L70 12 L92 18 L104 24 L104 28 L14 28Z" fill="#b3124f" stroke="#140a0e" stroke-width="1.5"/><circle cx="28" cy="30" r="8" fill="#140a0e"/><circle cx="92" cy="30" r="8" fill="#140a0e"/></svg></div>
-    <h1 class="d"><span class="a">FactCheck</span><span class="b">AI</span></h1>
-    <div class="role"><b>P4 · LLM / RETRIEVAL</b><i></i></div>
-    <p class="sub">Enter a claim → retrieve the most relevant evidence first → an LLM reads that evidence and gives a grounded verdict.</p>
+    <h1 class="d"><span class="a">F1 Race</span><span class="b">Intelligence Lab</span></h1>
+    <div class="role"><b>P1 · RACE STRATEGY ANALYTICS</b><i></i></div>
+    <p class="sub">A race-strategy platform on real FastF1 telemetry. It tests decisions (when to pit, which tyre, what a Safety Car really cost) and shows the uncertainty behind every estimate.</p>
     <div class="btns left" style="margin-top:22px;justify-content:flex-start"><a href="projects.html">BACK TO GARAGE</a><a href="contact.html">DISCUSS A PROJECT</a></div>
   </div>
   <div class="board">
-    <h4 class="d m"><span>LIVE TIMING</span><span>P4</span></h4>
-    <div class="row"><em>01</em><span>Retrieval<small>Evidence search</small></span><b>FAISS</b></div>
-    <div class="row"><em>02</em><span>Embeddings<small>SentenceTransformers</small></span><b>ST</b></div>
-    <div class="row"><em>03</em><span>LLM<small>Mistral via Ollama</small></span><b>MIS</b></div>
-    <div class="row"><em>04</em><span>Verdicts<small>Supported / Refuted / Unverifiable</small></span><b>3×</b></div>
-    <div class="row"><em>05</em><span>Index<small>Vector similarity search</small></span><b>ANN</b></div>
-    <div class="row"><em>06</em><span>Runtime<small>Local inference</small></span><b>LOCAL</b></div>
-    <div class="row"><em>07</em><span>UI<small>Streamlit</small></span><b>WEB</b></div>
+    <h4 class="d m"><span>LIVE TIMING</span><span>P1</span></h4>
+    <div class="row"><em>01</em><span>Data<small>FastF1 telemetry + SQLite</small></span><b>F1</b></div>
+    <div class="row"><em>02</em><span>Degradation<small>Quantile gradient boosting</small></span><b>P10/50/90</b></div>
+    <div class="row"><em>03</em><span>Explainability<small>SHAP values</small></span><b>SHAP</b></div>
+    <div class="row"><em>04</em><span>Safety Car cost<small>Counterfactual + bootstrap CI</small></span><b>CI</b></div>
+    <div class="row"><em>05</em><span>Strategy<small>Monte Carlo pit simulator</small></span><b>MC</b></div>
+    <div class="row"><em>06</em><span>UI<small>Streamlit + Plotly</small></span><b>WEB</b></div>
+    <div class="row"><em>07</em><span>Status<small>Under active development</small></span><b>WIP</b></div>
   </div>
 </header>
 
 <section data-s="CASE FILE">
-  <div class="sh rv"><b>P4</b><div><small class="m">THE RUN</small><h2 class="d">Retrieve, then reason</h2><p class="radio"><i>RADIO</i>The architecture separates retrieval from reasoning, so the LLM is grounded instead of guessing from memory.</p></div></div>
+  <div class="sh rv"><b>P1</b><div><small class="m">THE RUN</small><h2 class="d">Strategy with error bars</h2><p class="radio"><i>RADIO</i>Most F1 dashboards stop at a lap-time chart. This one asks what a strategist asks, and says how sure it is.</p></div></div>
   <div class="g2">
     <div class="card rv">
       <span class="m">SESSION NOTES</span>
-      <h3 class="d">What shipped</h3>
-      <p>An AI-powered fact-checking tool that first retrieves evidence with SentenceTransformers and FAISS, then sends that context to Mistral through Ollama.</p>
+      <h3 class="d">What it answers</h3>
+      <p>A race-strategy analysis platform built on real FastF1 data, around three questions: when should a driver pit given current tyre wear, how much did a Safety Car or VSC actually cost, and is the pace gap between two drivers real or noise.</p>
       <ul class="list">
-        <li>Semantic evidence retrieval with SentenceTransformers</li>
-        <li>Fast nearest-neighbor search using FAISS</li>
-        <li>Mistral analysis via Ollama</li>
-        <li>Verdicts: Supported, Refuted, Unverifiable — with reasoning</li>
-        <li>Pipeline: claim → embed → retrieve top-k evidence → pass to LLM as context</li>
-        <li>Grounding: the LLM only reasons over retrieved evidence, not free recall</li>
-        <li>Runs fully local: Ollama serves Mistral, no external API calls</li>
+        <li>Tyre degradation: fuel-corrected lap time vs tyre age, compound and track temperature</li>
+        <li>Quantile gradient boosting gives P10 / P50 / P90 bands, not one point guess</li>
+        <li>SHAP values show what drives degradation</li>
+        <li>Safety Car cost: per-stint green-flag baseline projected through the SC period, bootstrapped for a confidence interval</li>
+        <li>Pit simulator: Monte Carlo over degradation curves, track-specific pit loss and Safety Car probability</li>
+        <li>Bundled sample data keeps the app working offline</li>
       </ul>
-      <div class="chips"><span class="chip">PYTHON</span><span class="chip">FAISS</span><span class="chip">SENTENCETRANSFORMERS</span><span class="chip">MISTRAL</span><span class="chip">OLLAMA</span><span class="chip">STREAMLIT</span><span class="chip">RAG</span></div>
+      <div class="chips"><span class="chip">PYTHON</span><span class="chip">FASTF1</span><span class="chip">GRADIENT BOOSTING</span><span class="chip">SHAP</span><span class="chip">MONTE CARLO</span><span class="chip">SQLITE</span><span class="chip">STREAMLIT</span><span class="chip">PLOTLY</span></div>
     </div>
     <div class="demo rv">
-      <h4><span>FRONT-END DEMO</span><span class="m">SAMPLE CHECK</span></h4>
-      <label>Claim</label>
-      <textarea id="claim">The Earth orbits the Sun.</textarea>
-      <div class="btns left" style="margin-top:16px;justify-content:flex-start">
-        <button type="button" id="verifyBtn">RUN CHECK</button>
-        <button type="button" id="sampleBtn">LOAD SAMPLE</button>
-      </div>
-      <div class="out"><b id="verdict">SUPPORTED</b><p id="reason">Demo response: evidence retrieval would precede the reasoning layer in the full application.</p>
-        <div class="st"><span>EMBEDDINGS</span><span>ON</span></div>
-        <div class="st"><span>FAISS</span><span>READY</span></div>
-        <div class="st"><span>LLM</span><span>MISTRAL</span></div>
+      <h4><span>FRONT-END DEMO</span><span class="m">ILLUSTRATIVE</span></h4>
+      <label>Compound</label><select id="rcomp"><option value="1.6">SOFT</option><option value="1" selected>MEDIUM</option><option value="0.6">HARD</option></select>
+      <label>Tyre age (laps)</label><input id="rage" type="range" min="1" max="40" value="16">
+      <label>Track temperature (°C)</label><input id="rtemp" type="range" min="15" max="55" value="35">
+      <div class="out"><b id="rOut">+0.00s</b><p id="rBand">Illustrative UI only. This is not the trained model.</p>
+        <div class="st"><span>COMPOUND</span><span id="cOut">MEDIUM</span></div>
+        <div class="st"><span>TYRE AGE</span><span id="aOut">16</span></div>
+        <div class="st"><span>TRACK TEMP</span><span id="tOut">35°C</span></div>
       </div>
     </div>
   </div>
 
   <div class="g3 rv" style="margin-top:26px">
-    <div class="flow-step"><em>01</em><h4 class="d">Embed the claim</h4><p>SentenceTransformers turns the claim into a vector.</p></div>
-    <div class="flow-step"><em>02</em><h4 class="d">Retrieve evidence</h4><p>FAISS does a nearest-neighbor search over an indexed evidence set.</p></div>
-    <div class="flow-step"><em>03</em><h4 class="d">Grounded verdict</h4><p>Mistral, via Ollama, reasons only over the retrieved evidence.</p></div>
+    <div class="flow-step"><em>01</em><h4 class="d">Ingest</h4><p>FastF1 sessions are cached and loaded into a normalized SQLite schema.</p></div>
+    <div class="flow-step"><em>02</em><h4 class="d">Model</h4><p>Stints are segmented, fuel-corrected, then fed to the degradation and Safety Car models.</p></div>
+    <div class="flow-step"><em>03</em><h4 class="d">Simulate</h4><p>Monte Carlo runs return a distribution of outcomes for a proposed strategy.</p></div>
   </div>
 
   <div class="gloss rv" style="margin-top:26px">
-    <h4 class="d m"><span>RAG</span><span>PIPELINE</span></h4>
-    <div class="gitem"><em>01</em><b>Embedding model</b><span>SentenceTransformers converts claim + evidence into vectors</span></div>
-    <div class="gitem"><em>02</em><b>Vector index</b><span>FAISS for fast approximate nearest-neighbor search</span></div>
-    <div class="gitem"><em>03</em><b>Reasoning model</b><span>Mistral, served locally through Ollama</span></div>
-    <div class="gitem"><em>04</em><b>Grounding</b><span>Retrieved evidence is passed as context so the LLM doesn't answer from memory alone</span></div>
-    <div class="gitem"><em>05</em><b>Output</b><span>One of three verdicts — Supported, Refuted, Unverifiable — plus the reasoning behind it</span></div>
-    <div class="gitem"><em>06</em><b>Interface</b><span>Streamlit front end for entering a claim and reading the verdict</span></div>
+    <h4 class="d m"><span>PROJECT</span><span>LAYOUT</span></h4>
+    <div class="gitem"><em>01</em><b>Data</b><span>FastF1 ingestion, caching and SQLite loader</span></div>
+    <div class="gitem"><em>02</em><b>Features</b><span>Stint segmentation, fuel-corrected pace, degradation features</span></div>
+    <div class="gitem"><em>03</em><b>Models</b><span>Quantile degradation model with SHAP, plus Safety Car impact model</span></div>
+    <div class="gitem"><em>04</em><b>Simulation</b><span>Monte Carlo pit-stop strategy simulator</span></div>
+    <div class="gitem"><em>05</em><b>App</b><span>Multi-page Streamlit dashboard with shared Plotly figure builders</span></div>
+    <div class="gitem"><em>06</em><b>Offline mode</b><span>Falls back to a bundled parquet sample when there is no network</span></div>
   </div>
 </section>
 
@@ -132,5 +128,12 @@
 <footer class="m"><span>ANANYA BHARDWAJ · DATA SCIENCE &amp; ML · INDIA</span><span>CHEQUERED FLAG. THANKS FOR RACING THROUGH.</span></footer>
 <script src="main.js"></script>
 <script src="f1-upgrade.js"></script>
+<script>
+(()=>{const q=i=>document.getElementById(i),n=["HARD","MEDIUM","SOFT"],f=()=>{const k=+q('rcomp').value,a=+q('rage').value,t=+q('rtemp').value,r=.045*k*(1+.025*(t-30)),p=r*a,sp=.05*Math.sqrt(a)*k;
+q('rOut').textContent='+'+p.toFixed(2)+'s';q('rBand').textContent='P10 '+Math.max(0,p-sp).toFixed(2)+'s · P90 '+(p+sp).toFixed(2)+'s vs fresh tyre (illustrative)';
+q('cOut').textContent=n[[.6,1,1.6].indexOf(k)];q('aOut').textContent=a;q('tOut').textContent=t+'°C'};
+['rcomp','rage','rtemp'].forEach(i=>q(i).addEventListener('input',f));f()})();
+</script>
+
 </body>
 </html>

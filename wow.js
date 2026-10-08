@@ -15,10 +15,10 @@ if(L.length){
         $$('.hero').forEach(h=>h.classList.add('go'));
         const t=$('#ltxt');
         if(t) t.textContent='LIGHTS OUT. AND AWAY WE GO.';
-      },500);
+      },600);
     }
-  },340);
-  setTimeout(()=>$$('.hero').forEach(h=>h.classList.add('go')),3700);
+  },420);
+  setTimeout(()=>$$('.hero').forEach(h=>h.classList.add('go')),4200);
 }else{
   $$('.hero').forEach(h=>h.classList.add('go'));
 }
@@ -53,7 +53,7 @@ if(trk && $('#dot')){
   let last,rt;
   const MSG={
     'THE CIRCUIT':['GREEN FLAG','Track is clear. Lap started.'],
-    'SECTOR 1':['PURPLE SECTOR','Strong opening split. Education sector done.'],
+    'SECTOR 1':['PURPLE SECTOR','8.73 CGPA. Fastest split of the lap.'],
     'SECTOR 2':['DRS ENABLED','Cloud data work at speed.'],
     'SECTOR 3':['PODIUM','Project Expo 2024, 3rd place.'],
     'RACE PACE':['FASTEST LAP','Skills trending up.'],
@@ -187,7 +187,7 @@ $$('.sh h2,.circ h2').forEach(e=>so.observe(e));
 if($('#dl')) setInterval(()=>{$('#dl').textContent=(-(Math.random()*.6+.1)).toFixed(3)},500);
 
 const RB=$('#rb'),RR=$('#rr'),LU=$$('.ll u');
-if(RB && RR){
+if(RB && RR.length!==undefined){
   let st=0,tm=[],t1=0;
   const off=()=>LU.forEach(u=>u.classList.remove('on'));
   RB.onclick=()=>{
@@ -210,6 +210,16 @@ function toast(msg,ms){
   t.textContent=msg;t.classList.add('show');
   clearTimeout(t._k);t._k=setTimeout(()=>t.classList.remove('show'),ms);
 }
+$('#drs')?.addEventListener('click',()=>{
+  const fl=$('#flash');
+  fl?.classList.add('on');
+  setTimeout(()=>fl?.classList.remove('on'),260);
+  for(let i=0;i<46;i++){
+    const r=Math.random()*6.28,q=3+Math.random()*7;
+    S.push({x:innerWidth/2,y:innerHeight*.35,vx:Math.cos(r)*q,vy:Math.sin(r)*q,l:1});
+  }
+  toast('DRS ACTIVATED · OVERTAKE MODE',1800);
+});
 
 $$('[data-filter]').forEach(btn=>{
   btn.addEventListener('click',()=>{
@@ -274,24 +284,3 @@ function runFlight(){
 }
 if(d) [d,s,l,c].forEach(x=>x.addEventListener('input',runFlight));
 runFlight();
-/* ===== hero v2: lap dots + live gear/speed HUD + plate 3D tilt ===== */
-const hd=$('#hudDots');
-if(hd){
-  const N=15,dots=[...Array(N)].map(()=>{const i=document.createElement('i');hd.append(i);return i}),pc=$('#hudPct'),gr=$('#hudGear'),spd=$('#hudSpd');
-  const upH=()=>{const p=Math.min(1,scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight)),n=Math.floor(p*N);
-    dots.forEach((d,i)=>d.className=i<n?'d':i===n?'c':'');pc.textContent=Math.round(p*100)+'%'};
-  addEventListener('scroll',upH,{passive:true});upH();
-  let sv=0;const h0=performance.now();
-  (function f(now){const t=(now-h0)/1000,go=$('.hero')?.classList.contains('go'),tg=go?250+Math.sin(t*1.7)*48+Math.sin(t*.6)*22:0;
-    sv+=(tg-sv)*.035;const s=Math.round(sv);spd.textContent=s;gr.textContent=Math.max(1,Math.min(8,Math.ceil(s/36)));requestAnimationFrame(f)})(h0);
-}
-const pl=$('#plate');
-if(pl&&matchMedia('(pointer:fine)').matches){
-  const hero=$('.hero');
-  hero.addEventListener('mousemove',e=>{const r=pl.getBoundingClientRect(),x=(e.clientX-(r.left+r.width/2))/innerWidth,y=(e.clientY-(r.top+r.height/2))/innerHeight;
-    pl.style.setProperty('--ry',(x*16).toFixed(2)+'deg');pl.style.setProperty('--rx',(-y*12).toFixed(2)+'deg');
-    pl.style.setProperty('--px',(-x*9).toFixed(2));pl.style.setProperty('--py',(-y*9).toFixed(2))});
-  hero.addEventListener('mouseleave',()=>['--ry','--rx','--px','--py'].forEach(v=>pl.style.removeProperty(v)));
-}
-
-const topT=()=>document.body.classList.toggle('atTop',scrollY<260);addEventListener('scroll',topT,{passive:true});topT();
