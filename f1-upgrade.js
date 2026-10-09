@@ -119,4 +119,11 @@ if(btn){
  const chips=[...box.querySelectorAll('.chip')];
  const show=c=>{chips.forEach(x=>x.classList.toggle('on',x===c));const t=c.textContent.trim();panel.innerHTML='<b>'+t+'</b><p>'+(d[t]||'')+'</p>';panel.classList.add('show')};
  chips.forEach(c=>{c.tabIndex=0;c.setAttribute('role','button');c.addEventListener('click',()=>show(c));c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show(c)}})});
- show(chips[0]);})();
+ show(chips[0]);})();/* mobile menu (hamburger) — the button is hidden by CSS above 900px */
+(()=>{const nav=document.querySelector('nav');if(!nav)return;
+ const b=document.createElement('button');b.className='nav-burger';b.type='button';b.setAttribute('aria-label','Menu');b.setAttribute('aria-expanded','false');b.innerHTML='<i></i><i></i><i></i>';nav.append(b);
+ const set=o=>{nav.classList.toggle('open',o);b.setAttribute('aria-expanded',String(o));document.body.classList.toggle('menu-open',o)};
+ b.addEventListener('click',()=>set(!nav.classList.contains('open')));
+ nav.addEventListener('click',e=>{if(e.target.closest('#drs,a.pill,a.di,a[href^="#"]'))set(false)});
+ addEventListener('keydown',e=>{if(e.key==='Escape')set(false)});
+ addEventListener('resize',()=>{if(innerWidth>900)set(false)});})();

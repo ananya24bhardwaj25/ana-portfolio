@@ -131,3 +131,63 @@ nav div{gap:20px!important}
 .chip-detail.show{opacity:1;transform:none}
 .chip-detail b{font:700 11px 'JetBrains Mono',monospace;letter-spacing:.12em;color:#b3124f}
 .chip-detail p{margin:6px 0 0;font-size:13.5px;line-height:1.5}
+/* =====================================================================
+   MOBILE POLISH — everything below lives inside max-width:900px,
+   so the desktop site is untouched.
+   ===================================================================== */
+.nav-burger{display:none}
+@media(max-width:900px){
+ /* --- compact header: logo + hamburger, menu drops down on tap --- */
+ nav{padding:9px 5vw!important;flex-wrap:nowrap!important}
+ nav b{font-size:18px!important}
+ .nav-burger{display:flex;margin-left:auto;width:44px;height:38px;border:2px solid var(--ink);background:#fff;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0;cursor:pointer}
+ .nav-burger i{display:block;width:18px;height:2px;background:var(--ink);transition:transform .25s,opacity .2s}
+ nav.open .nav-burger{background:var(--ink)}
+ nav.open .nav-burger i{background:#fff}
+ nav.open .nav-burger i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+ nav.open .nav-burger i:nth-child(2){opacity:0}
+ nav.open .nav-burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+ nav div{display:none!important}
+ nav.open div{display:flex!important;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:0!important;max-width:none!important;
+  max-height:calc(100vh - 62px);max-height:calc(100dvh - 62px);overflow-y:auto!important;padding:4px 5vw 18px;background:#fdf5f3!important;backdrop-filter:none;border-bottom:3px solid var(--ink);box-shadow:0 18px 30px rgba(20,10,14,.2)}
+ nav.open a.l{display:block;padding:14px 2px;font-size:15px!important;border-bottom:1px solid rgba(20,10,14,.1)}
+ nav.open a.l:after{display:none}
+ nav.open .dd{display:block}
+ nav.open .dd-menu{position:static;display:none;min-width:0;margin:2px 0 8px;box-shadow:none;clip-path:none!important;visibility:visible!important;opacity:1!important;transform:none!important}
+ nav.open .dd.open .dd-menu{display:block}
+ nav.open .dd-menu:before{display:none}
+ nav.open .di{opacity:1!important;transform:none!important;grid-template-columns:30px 1fr;padding:12px}
+ nav.open .di u{display:none}
+ nav.open .di.all{grid-template-columns:1fr}
+ nav.open .pill{justify-content:center;padding:13px 14px;margin-top:10px;font-size:12px}
+ nav.open #drs{margin-top:14px}
+ body.menu-open{overflow:hidden}
+ .rc{top:66px!important}
+
+ /* --- spacing: tighter, even rhythm between sections --- */
+ section,header{padding:56px 5vw 38px}
+ .stop{padding:60px 5vw!important}
+ .hero,.hero.page{min-height:auto!important;padding-top:84px!important;padding-bottom:30px!important;gap:0}
+ .hero-side{display:none}
+ .sh{gap:12px;margin-bottom:24px}
+ .sh>b{font-size:62px}
+ .g2,.stint{gap:16px}
+ .card{padding:20px}
+ .circ-in{gap:22px}
+ .lb .r{gap:6px 12px;padding:18px 14px}
+ .guide{gap:10px}
+
+ /* --- hero fits a phone --- */
+ .plate-hero .lights{flex-wrap:wrap;gap:8px;margin-bottom:12px}
+ .plate-hero .lights u{width:24px;height:24px}
+ .plate-hero .lights span{flex-basis:100%;margin:6px 0 0!important;font-size:10px}
+ .plate-hero h1 .a,.plate-hero h1 .b{font-size:21vw}
+ .plate-hero .role{margin:12px 0 14px!important}
+ .hud-foot{gap:12px;margin-top:18px}
+ .mini{width:32vw;max-width:150px}
+ #f1-ghost{font-size:46vh;right:-8vw;margin-top:-23vh;opacity:.4}
+
+ /* --- stray empty toast bar peeking above the browser toolbar --- */
+ .toast{opacity:0;visibility:hidden}
+ .toast.show{opacity:1;visibility:visible}
+}
